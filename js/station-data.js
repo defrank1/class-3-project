@@ -1,4 +1,4 @@
-var StationData = [
+var stationData = [
     {
         "station_name": "Judiciary Square",
         "station_subname": "BLANK",

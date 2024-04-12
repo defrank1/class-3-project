@@ -26,20 +26,20 @@ stationData.forEach(function (stationRecord) {
     if (stationRecord.station_line === 'Red') {
         color = '#BF0D3E'
     }
-    if (stationRecord.station_line === 'Red') { // CHANGE THESE TO OTHER LINES LATER
-        color = '#BF0D3E'
+    if (stationRecord.station_line === 'Orange') { // CHANGE THESE TO OTHER LINES LATER
+        color = '#ED8B00'
     }
-    if (stationRecord.station_line === 'Red') {
-        color = '#BF0D3E'
+    if (stationRecord.station_line === 'Blue') {
+        color = '#009CDE'
     }
-    if (stationRecord.station_line === 'Red') {
-        color = '#BF0D3E'
+    if (stationRecord.station_line === 'Green') {
+        color = '#00B140'
     }
-    if (stationRecord.station_line === 'Red') {
-        color = '#BF0D3E'
+    if (stationRecord.station_line === 'Yellow') {
+        color = '#FFD100'
     }
-    if (stationRecord.station_line === 'Red') {
-        color = '#BF0D3E'
+    if (stationRecord.station_line === 'Silver') {
+        color = '#919D9D'
     }
 
     // create a popup to attach to the marker
@@ -48,48 +48,6 @@ stationData.forEach(function (stationRecord) {
         anchor: 'bottom'
     }).setText(
         `${stationRecord.station_name} is a 🚇 station on the ${stationRecord.station_line}`
-    );
-
-    // create a marker, set the coordinates, add the popup, add it to the map
-    new mapboxgl.Marker({
-        scale: 0.65,
-        color: color
-    })
-        .setLngLat([stationRecord.longitude, stationRecord.latitude])
-        .setPopup(popup)
-        .addTo(map);
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-// loop over the stationRecord array to make a marker for each record
-stationData.forEach(function (stationRecord) {
-
-    var color
-
-    // use if statements to assign colors based on pizzaData.program
-    if (stationRecord.station_line === 'Red Line') {
-        color = '#BF0D3E'
-    }
-
-
-
-    // create a popup to attach to the marker
-    const popup = new mapboxgl.Popup({
-        offset: 24,
-        anchor: 'bottom'
-    }).setText(
-        `${stationRecord.name} loves to eat 🍕 at ${stationRecord.Subname}`
     );
 
     // create a marker, set the coordinates, add the popup, add it to the map
