@@ -26,7 +26,7 @@ stationData.forEach(function (stationRecord) {
     if (stationRecord.station_line === 'Red') {
         color = '#11111'
     }
-    if (stationRecord.station_line === 'Orange') { // CHANGE THESE TO OTHER LINES LATER
+    if (stationRecord.station_line === 'Orange') { // Leave these black, but figure out how to make the markers "metro dots"
         color = '#11111'
     }
     if (stationRecord.station_line === 'Blue') {

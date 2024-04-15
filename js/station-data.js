@@ -1,4 +1,4 @@
-var stationData = [
+var stationData = [ // this is the second JS file that is basically a list of all the stations
     
     {
         "station_name": "Metro Center",
