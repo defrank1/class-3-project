@@ -4,7 +4,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGVmcmFuazEiLCJhIjoiY2x1bHZ0OWJyMHlhdjJrcDFsZ
 
 var mapOptions = {
     container: 'map-container', // container ID
-    style: 'mapbox://styles/mapbox/light-v11', // light basemap
+    style: 'mapbox://styles/mapbox/standard', // standard basemap
     center: [-77.02861, 38.89836], // starting position [lng, lat]
     zoom: 10.4, // starting zoom,
 }
@@ -24,22 +24,22 @@ stationData.forEach(function (stationRecord) {
     // use if statements to assign colors based on stationData.station_line
     
     if (stationRecord.station_line === 'Red') {
-        color = '#BF0D3E'
+        color = '#11111'
     }
     if (stationRecord.station_line === 'Orange') { // CHANGE THESE TO OTHER LINES LATER
-        color = '#ED8B00'
+        color = '#11111'
     }
     if (stationRecord.station_line === 'Blue') {
-        color = '#009CDE'
+        color = '#11111'
     }
     if (stationRecord.station_line === 'Green') {
-        color = '#00B140'
+        color = '#11111'
     }
     if (stationRecord.station_line === 'Yellow') {
-        color = '#FFD100'
+        color = '#11111'
     }
     if (stationRecord.station_line === 'Silver') {
-        color = '#919D9D'
+        color = '#11111'
     }
 
     // create a popup to attach to the marker
@@ -47,7 +47,7 @@ stationData.forEach(function (stationRecord) {
         offset: 24,
         anchor: 'bottom'
     }).setText(
-        `${stationRecord.station_name} is a 🚇 station on the ${stationRecord.station_line}`
+        `${stationRecord.station_name} is a 🚇 station on the ${stationRecord.station_line} Line`
     );
 
     // create a marker, set the coordinates, add the popup, add it to the map
