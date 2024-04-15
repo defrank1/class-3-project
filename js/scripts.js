@@ -47,7 +47,7 @@ stationData.forEach(function (stationRecord) {
         offset: 24,
         anchor: 'bottom'
     }).setText(
-        `${stationRecord.station_name} is a 🚇 station on the ${stationRecord.station_line} Line`
+        `${stationRecord.station_name} is a WMATA metro station on the ${stationRecord.station_line} Line`
     );
 
     // create a marker, set the coordinates, add the popup, add it to the map
