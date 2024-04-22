@@ -9,6 +9,8 @@ var mapOptions = {
     zoom: 10.4, // starting zoom,
 }
 
+// instantiate the map
+const map = new mapboxgl.Map(mapOptions);
 
 // add a navitation control
 const nav = new mapboxgl.NavigationControl();
