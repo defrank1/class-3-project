@@ -2,20 +2,6 @@
     font-family: sans-serif;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-}
-
-#map-container {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-}
-
 #legend-container {
 
     position: absolute;
@@ -42,28 +28,20 @@ legend-item {
     margin-right: 5px;
 }
 
-#title-container {
-
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background-color: white;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    z-index: 1;
-    /* Ensure title card appears above the map */
-
-}
-
-title-item {
-    display: flex;
-    align-items: left;
-    margin-bottom: 5px;
-}
-
-.title-color {
-    width: 20px;
+.single-station {
+    background-image: url('../mapbox-markers/single-station.png'); /*NOTE: not sure if i need this here, in HTML, or both*/
+    background-size: cover;
+    width: 10px;
     height: 10px;
-    margin-left: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.transfer-station {
+    background-image: url('../mapbox-markers/transfer-station.png'); /*NOTE: not sure if i need this here, in HTML, or both*/
+    background-size: cover;
+    width: 15.4px;
+    height: 15.4px;
+    border-radius: 50%;
+    cursor: pointer;
 }

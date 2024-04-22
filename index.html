@@ -3,48 +3,153 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Metro Map</title>
+    <title>Transit-Oriented Opportunity DC</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.0/mapbox-gl.js"></script> <!--TBD-->
     <link href="css/styles.css" rel="stylesheet">
 
     <style>
-        .map-container {
-            margin: 0 auto;
-            max-width: 800px;
-            /* You can adjust the max-width as needed */
+        html,
+        head,
+        body,
+        #main-container {
+            height: 100%;
+            width: 100%;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #main-container {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        nav {
+            padding: 1rem;
+            border-bottom: 1px solid #000;
+            display: flex;
+        }
+
+        .nav-links {
+            flex-grow: 1;
+            justify-content: end;
+            display: flex;
+        }
+
+        .nav-link {
+            display: inline-block;
+            font-size: .9rem;
+        }
+
+        #content-container {
+            flex-grow: 1;
+            display: flex;
+            min-height: 0;
+        }
+
+        #sidebar {
+            width: 348px;
+            padding: 1rem;
+            font-size: 0.9rem;
+            overflow-y: scroll;
+            box-sizing: border-box;
+        }
+
+        #map 
+            {
+            height: 100%;
+            flex-grow: 1;
+
+        }
+
+        .title {
+            font-weight: 600;
+        }
+
+        @media only screen and (max-width: 800px) {
+            #content-container {
+                flex-direction: column-reverse;
+            }
+
+            #map {
+                height: 60%;
+                flex-shrink: 0;
+            }
+
+            #sidebar {
+                width: 100%;
+            }
         }
     </style>
 
 </head>
 
 <body>
-    <div>
-    <div id="map-container"></div>   <!--this is the div that contains the MAP-->
-    <div id="legend-container">  <!--this is the div that contains the LEGEND-->
-        <h2>Legend</h2>
-        <div class="legend-item">
-            <div class="legend-color" style="background-color: #ff0000;"></div>
-            <div class="legend-label">Red Line</div>
+    <div id="main-container">
+        <nav>
+            <div class="title">Transit-Oriented Opportunity in Washington, D.C.</div>
+            <div class="nav-links">
+                <a class="nav-link" href="https://github.com/chriswhong/responsive-web-map-layout" target="_blank"
+                    rel="noopener noreferrer">Github</a>
+            </div>
+
+        </nav>
+        <div id="content-container">
+            <div id="sidebar">
+                <p>This is a map of the Washington metro system, with TBD HOUSING DATA overlaid, to show where new
+                    housing is possible with zoning changes to allow for apartments.
+
+                <p> New paragraph</p>
+                </p>
+            </div>
+            <div id="map">
+                <div id="legend-container"> <!--this is the div that contains the LEGEND-->
+                    <h2>Legend</h2>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #BF0D3E;"></div>
+                        <div class="legend-label">Red Line</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #ED8B00;"></div>
+                        <div class="legend-label">Orange Line</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #009CDE;"></div>
+                        <div class="legend-label">Blue Line</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #00B140;"></div>
+                        <div class="legend-label">Green Line</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #FFD100;"></div>
+                        <div class="legend-label">Yellow Line</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: #919D9D;"></div>
+                        <div class="legend-label">Silver Line</div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="legend-item">
-            <div class="legend-color" style="background-color: #00ff00;"></div>
-            <div class="legend-label">Green Line</div>
-        </div>
-        
-    </div>
-    <div id="title-container">  <!--this is the div that contains the TITLE BOX-->
-        <h1>Washington Metro</h1>
-        <div class="title-item">
-<h3><i>A map of the WMATA rail system</i></h3>
-        
-        </div>
-        <div class="title-item">
-            <p>Explore the map to learn more about the Washington Metro</p>
-        </div>
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script> <!--this is the MAP SCRIPT-->
-    <script src="js/station-data.js"></script> <!--this is the STATION SCRIPT-->
-    <script src="js/scripts.js"></script> <!--this is the LOCAL JS SCRIPT-->
+        <script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js" ;>
+            const map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v12',
+                center: [-74.5, 40],
+                zoom: 2
+            });
+
+
+            map.addControl(new mapboxgl.NavigationControl());  </script> <!--this is the MAP SCRIPT-->
+        <script src="js/station-data.js"></script> <!--this is the STATION SCRIPT-->
+        <script src="js/scripts.js"></script> <!--this is the LOCAL JS SCRIPT-->
 
 </body>
 

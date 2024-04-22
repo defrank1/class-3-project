@@ -1,10 +1,11 @@
 var stationData = [ // this is the second JS file that is basically a list of all the stations
-    
+
     {
         "station_name": "Metro Center",
         "longitude": -77.028099,
         "latitude": 38.898303,
-        "station_line": "Red"
+        "station_line": "Red",
+        "transfer_station": true
     },
     {
         "station_name": "Farragut North",
@@ -94,7 +95,8 @@ var stationData = [ // this is the second JS file that is basically a list of al
         "station_name": "Gallery Pl-Chinatown",
         "longitude": -77.021851,
         "latitude": 38.89834,
-        "station_line": "Red"
+        "station_line": "Red",
+        "transfer_station": true
     },
     {
         "station_name": "Judiciary Square",
@@ -124,7 +126,8 @@ var stationData = [ // this is the second JS file that is basically a list of al
         "station_name": "Fort Totten",
         "longitude": -77.002174,
         "latitude": 38.951777,
-        "station_line": "Red"
+        "station_line": "Red",
+        "transfer_station": true
     },
     {
         "station_name": "Takoma",
@@ -196,7 +199,8 @@ var stationData = [ // this is the second JS file that is basically a list of al
         "station_name": "Pentagon",
         "longitude": -77.054013,
         "latitude": 38.869349,
-        "station_line": "Silver"
+        "station_line": "Silver",
+        "transfer_station": true
     },
     {
         "station_name": "Pentagon City",
@@ -232,7 +236,8 @@ var stationData = [ // this is the second JS file that is basically a list of al
         "station_name": "King St-Old Town",
         "longitude": -77.061115,
         "latitude": 38.806474,
-        "station_line": "Silver"
+        "station_line": "Silver",
+        "transfer_station": true
     },
     {
         "station_name": "Eisenhower Avenue",
@@ -262,7 +267,8 @@ var stationData = [ // this is the second JS file that is basically a list of al
         "station_name": "L'Enfant Plaza",
         "longitude": -77.021964,
         "latitude": 38.884775,
-        "station_line": "Silver"
+        "station_line": "Silver",
+        "transfer_station": true
     },
     {
         "station_name": "Federal Center SW",
@@ -292,7 +298,8 @@ var stationData = [ // this is the second JS file that is basically a list of al
         "station_name": "Stadium-Armory",
         "longitude": -76.977485,
         "latitude": 38.88594,
-        "station_line": "Silver"
+        "station_line": "Silver",
+        "transfer_station": true
     },
     {
         "station_name": "Minnesota Ave",
@@ -328,7 +335,8 @@ var stationData = [ // this is the second JS file that is basically a list of al
         "station_name": "Mt Vernon Sq 7th St-Convention Center",
         "longitude": -77.022256,
         "latitude": 38.905604,
-        "station_line": "Silver"
+        "station_line": "Yellow",
+        "transfer_station": true
     },
     {
         "station_name": "Shaw-Howard U",
@@ -358,7 +366,8 @@ var stationData = [ // this is the second JS file that is basically a list of al
         "station_name": "Fort Totten",
         "longitude": -77.002174,
         "latitude": 38.951777,
-        "station_line": "Silver"
+        "station_line": "Silver",
+        "transfer_station": true
     },
     {
         "station_name": "West Hyattsville",
@@ -385,21 +394,9 @@ var stationData = [ // this is the second JS file that is basically a list of al
         "station_line": "Silver"
     },
     {
-        "station_name": "Gallery Pl-Chinatown",
-        "longitude": -77.021851,
-        "latitude": 38.89834,
-        "station_line": "Green"
-    },
-    {
         "station_name": "Archives-Navy Memorial-Penn Quarter",
         "longitude": -77.021902,
         "latitude": 38.893893,
-        "station_line": "Green"
-    },
-    {
-        "station_name": "L'Enfant Plaza",
-        "longitude": -77.021964,
-        "latitude": 38.884775,
         "station_line": "Green"
     },
     {
@@ -520,7 +517,8 @@ var stationData = [ // this is the second JS file that is basically a list of al
         "station_name": "East Falls Church",
         "longitude": -77.157177,
         "latitude": 38.885841,
-        "station_line": "Orange"
+        "station_line": "Orange",
+        "transfer_station": true
     },
     {
         "station_name": "West Falls Church",
@@ -606,9 +604,9 @@ var stationData = [ // this is the second JS file that is basically a list of al
         "latitude": 39.005283,
         "station_line": "Silver"
     }
-    
-            
-        
-    ]
-    
+
+
+
+]
+
 
