@@ -6,42 +6,9 @@ var mapOptions = {
     zoom: 10.4, // starting zoom,
 }
 
-// map.js
-const mapboxgl = require('mapbox-gl'); // Assuming you use Node.js-style module importing
-
-// Import the redlineline coordinates from your separate file
-const redlineline = require('js/line-data.js'); // Update the path as needed
-
-mapboxgl.accessToken = 'pk.eyJ1IjoiZGVmcmFuazEiLCJhIjoiY2x1bHZ0OWJyMHlhdjJrcDFsZzlwc3ZxMSJ9.XD1OM3LMVn2qoX9QMqR5Vg';
 
 // instantiate the map
 const map = new mapboxgl.Map(mapOptions);
-
-// a rough line of the WMATA Red Line in Ward 3 
-var redlineline = {
-    "type": "FeatureCollection",
-    "features": [
-        {
-            "type": "Feature",
-            "properties": {},
-            "geometry": {
-                "coordinates":
-                    [
-
-                        [
-                            -76.960274,
-                            38.897077
-                        ],
-
-
-
-
-                    ],
-                "type": "LineString"
-            }
-        }
-    ]
-}
 
 // add a navitation control
 const nav = new mapboxgl.NavigationControl();
@@ -50,23 +17,7 @@ map.addControl(nav, 'top-right');
 // wait! don't execute this code until the map is finished it's initial load
 map.on('load', () => {
 
-    // add a geojson source for the dummy data
-    map.addSource('redlineline', {
-        "type": "geojson",
-        "data": redlineline
-    })
 
-    // add a line layer using this dummy data
-    map.addLayer({
-        'id': 'redlineline-line',
-        'type': 'line',
-        'source': 'redlineline',
-        'layout': {},
-        'paint': {
-            'line-color': 'red',
-            'line-width': 10,
-        }
-    },);
 
     // list all the layers on the map in the console
     console.log(
