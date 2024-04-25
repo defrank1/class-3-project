@@ -51,17 +51,20 @@ map.on('load', () => {
     lineData.forEach(function (lineRecord) {
 
         // create a line, set the coordinates, add it to the map
-        new mapboxgl.addLayer({
-            id: lineRecord.properties.blueline1,
-            type: 'lineString',
-            source: lineRecord,
+        map.addLayer({
+            id: lineRecord.properties.id,
+            type: 'line',
+            source: {
+                type: 'geojson',
+                data: lineRecord
+            },
             layout: {
                 'line-cap': 'round',
                 'line-join': 'round'
 
             },
             paint: {
-                'line-color': '#888',
+                'line-color': '#009CDE',
                 'line-width': 10
             }
         })
