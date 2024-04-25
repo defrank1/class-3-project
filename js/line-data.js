@@ -1,14 +1,4 @@
-// Define line data with line_name, longitude, and latitude
-var lineData = [
-    {
-        "line_name": "Blue Line",
-        "longitude": -77.028099,
-        "latitude": 38.898303
-    }
-];
-
-// Define the array of coordinates in the desired format
-var coordinates = [
+const blueLineCoordinates = [
     [-76.960274, 38.897077],
     [-76.95827, 38.896813],
     [-76.957403, 38.896699],
@@ -62,6 +52,5 @@ var coordinates = [
     [-76.87163, 38.892408],
     [-76.870655, 38.892788],
     [-76.869799, 38.893123],
-    [-76.869137, 38.893381],
-
-]
+    [-76.869137, 38.893381], 
+];
