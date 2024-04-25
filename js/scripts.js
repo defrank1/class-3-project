@@ -52,17 +52,18 @@ map.on('load', () => {
 
         // create a line, set the coordinates, add it to the map
         new mapboxgl.addLayer({
-        id: 'bluea1line',
-        type: 'lineString',
-        source: 'js/station-data/js',
-        layout: {
-'line-cap': 'round',
-'line-join': 'round'
+            id: 'bluea1line',
+            type: 'lineString',
+            source: 'js/station-data/js',
+            layout: {
+                'line-cap': 'round',
+                'line-join': 'round'
 
-        },
-        paint: {
-            'line-color': '#888',
-        'line-width': 5
-    }
+            },
+            paint: {
+                'line-color': '#888',
+                'line-width': 5
+            }
+        })
     })
-})})
+})
