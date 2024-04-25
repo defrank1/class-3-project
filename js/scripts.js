@@ -64,9 +64,11 @@ map.on('load', () => {
 
             },
             paint: {
-                'line-color': '#009CDE',
+                'line-color': lineRecord.properties.color,
                 'line-width': 10
             }
         })
+
+
     })
 })
