@@ -1,9 +1,9 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGVmcmFuazEiLCJhIjoiY2x1bHZ0OWJyMHlhdjJrcDFsZzlwc3ZxMSJ9.XD1OM3LMVn2qoX9QMqR5Vg';
 var mapOptions = {
     container: 'map', // container ID
-    style: 'mapbox://styles/mapbox/standard', // standard basemap
-    center: [-77.02861, 38.89836], // starting position [lng, lat]
-    zoom: 10.4, // starting zoom,
+    style: 'mapbox://styles/mapbox/light-v11', // standard basemap
+    center: [-77.06964, 38.94194], // starting position [lng, lat]
+    zoom: 13.2, // starting zoom,
 }
 
 
@@ -12,7 +12,10 @@ const map = new mapboxgl.Map(mapOptions);
 
 // add a navitation control
 const nav = new mapboxgl.NavigationControl();
-map.addControl(nav, 'top-right');
+map.scrollZoom.disable();
+map.dragRotate.disable();
+map.touchZoomRotate.disableRotation();
+
 
 // wait! don't execute this code until the map is finished it's initial load
 map.on('load', () => {
@@ -65,7 +68,7 @@ map.on('load', () => {
             },
             paint: {
                 'line-color': lineRecord.properties.color,
-                'line-width': 10
+                'line-width': 15
             }
         })
 
