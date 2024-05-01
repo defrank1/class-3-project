@@ -78,6 +78,47 @@
     color: rgba(0, 0, 0, .3);
   }
 
+  /*black button for the "take me home" button */
+  .black-button {
+    align-items: left;
+    background-color: #111;
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    height: 48px;
+    justify-content: left;
+    line-height: 24px;
+    max-width: 100%;
+    padding: 10px 10px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+
+.black-button:hover { 
+background-color: #16437E;
+color: #ffffff;
+}
+
+.black-button:active {
+background: #09223b;
+color: rgb(255, 255, 255, .7);
+}
+
+.black-button:disabled { 
+cursor: not-allowed;
+background: rgba(0, 0, 0, .08);
+color: rgba(0, 0, 0, .3);
+}
+
 #legend-container {
 
     position: absolute;

@@ -5,7 +5,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGVmcmFuazEiLCJhIjoiY2x1bHZ0OWJyMHlhdjJrcDFsZ
 const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/light-v11',
-    bounds: [[-77.16628, 38.89068], [-77.01112, 38.98512]]
+    bounds: [[-77.10972, 38.90469],[-77.03636, 38.97227]]
 });
 
 // when the map is finished it's initial load, add sources and layers.
@@ -28,15 +28,15 @@ map.on('load', function () {
                 'match',
                 ['get', 'station_code'],
                 '1',
-                '#b3e2cd',
+                '#003494',
                 '2',
-                '#fdcdac',
+                '#003494',
                 '3',
-                '#cbd5e8',
+                '#003494',
                 '4',
-                '#f4cae4',
+                '#003494',
                 '5',
-                '#e6f5c9',
+                '#003494',
                 '#ccc'
             ],
             // use a case expression to set the opacity of a polygon based on featureState
@@ -144,10 +144,15 @@ map.on('load', function () {
 let stationVisible = true
 
 // when the toggle button is clicked, check stationVisible to get the current visibility state, update the layer visibility to reflect the opposite of the current state.
-$('#station-toggle').on('click', function () {
+$('#take-home').on('click', function () {
+    map.fitBounds([[-77.10972, 38.90469],[-77.03636, 38.97227]])
+})
+
+    /*ALL OF THESE INSTRUCTIONS ARE ABOUT TOGGLING, DO NOT DELETE, APPLY THEM TO EACH STATION BUTTON 
+
 
     // by default we will set the layers to visible
-    let value = 'visible'
+    let value = 'visible' 
 
     // if the layers are already visible, set their visibility to 'none'
     if (stationVisible === true) {
@@ -161,6 +166,8 @@ $('#station-toggle').on('click', function () {
     // flip the value in station_Visible to reflect the new state. (if true, it becomes false, if false it becomes true)
     stationVisible = !stationVisible
 })
+
+*/
 
 // list all the layers on the map in the console
 console.log(
