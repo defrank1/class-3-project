@@ -170,7 +170,7 @@ legend-item {
   /* Sidebar adjustments */
   .sidebar {
     width: 40%;
-    height: 40%; /* Reduced height */
+    height: 70%; /* Reduced height */
     padding: 10px; /* Adjusted padding */
     margin: 10px;
     font-size: 12px;
@@ -184,6 +184,6 @@ legend-item {
   /* Button adjustments */
   .red-button, .blue-button {
     font-size: 10px; /* Smaller font size for buttons */
-    height: 36px; /* Reduced button height */
+    height: 30px; /* Reduced button height */
     padding: 6px 10px; /* Reduced button padding */
   }}
