@@ -125,8 +125,8 @@ map.on('load', function () {
         $('#station').text(`You clicked on the ${station_name} walkshed!`)
     });
 
-    //listen for a click on a specific station-boundaries-fill layer and use fitBounds to change the map's camera view
-    $('#station-boundaries-fill').on('click', function(){
+    //listen for a click on a specific layer and use fitBounds to change the map's camera view
+    $('friendship-walkshed').on('click', function(){
         map.fitBounds([[-77.10243, 38.95183],[-77.07210, 38.97202]])
     })
 
