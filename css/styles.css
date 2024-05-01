@@ -12,15 +12,15 @@
 
 /* add a floating sidebar in the top left */
 .sidebar {
-    position: absolute;
-    width: 20%;
-    z-index: 10;
-    background: #d2d2d2;
-    padding: 12px;
-    border-radius: 8px;
-    margin-top: 15px;
-    margin-left: 15px;
-    font-family: sans-serif;
+  position: absolute;
+  width: 20%;
+  z-index: 10;
+  background: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 15px;
+  margin-left: 15px;
+  font-family: sans-serif
 }
 
 /* styles for text areas in the sidebar */
@@ -131,29 +131,9 @@ color: rgba(0, 0, 0, .3);
       height: 100%;
       flex-shrink: 0;
   }
-
-      #red.button{
-
-        /*EMPTY!!!!*/
-
-      }
-
-      #black.button{
-
-  /*EMPTY!!!!*/
-
-      }
   }
 
 #legend-container {
-
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    background-color: white;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
     z-index: 1;
     /* Ensure legend appears above the map */
 
