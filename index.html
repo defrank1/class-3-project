@@ -8,9 +8,6 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script> <!--Include mapBox GL JS here-->
     <link href="css/styles.css" rel="stylesheet">
-  
-
-
 
     <style>
         html,
@@ -93,58 +90,73 @@
 </head>
 
 <body>
-    <div id="main-container">
-        <nav>
-            <div class="title">Transit-Oriented Opportunity in Washington, D.C.</div>
-            <div class="nav-links">
-                <a class="nav-link" href="https://github.com/defrank1/class-3-project" target="_blank"
-                    rel="noopener noreferrer">Github</a>
-            </div>
+    <!-- floating sidebar -->
+    <div class="sidebar">
+        <div class="title">
+            Transit-Oriented Opportunity in Washington, DC
+        </div>
+        <div id="station-walkshed">
+            <p>This is a map of Rock Creek West, a large section of Washington, DC. The Washington metro's Red Line is
+                shown, as well as a 15-minute walking radius from each station. Also shown is TBD HOUSING DATA.
 
-        </nav>
-        <div id="content-container">
-            <div id="sidebar">
-                <p>This is a map of Rock Creek West, a large section of Washington, DC. The Washington metro's Red Line is shown, as well as a 15-minute walking radius from each station. Also shown is TBD HOUSING DATA.
+            <p> <b>Click on a metro station to learn more about the current HOUSING OR ZONING within a 15-minute
+                    walk.</b></p>
+            </p>
+        </div>
+        <hr />
+        <!-- buttons to control the map view -->
+        <div class="description-text">These buttons use flyTo() and fitBounds() to control the map view.</div>
+        <button class="red-button" id="staten-island-button">Woodley Park</button>
+        <p></p>
+        <button class="red-button" id="manhattan-button">Friendship Heights</button>
 
-                <p> <b>Click on a metro station to learn more about the current HOUSING OR ZONING within a 15-minute walk.</b></p>
-                </p>
+        <!-- button to toggle layer visibility -->
+        <div class="description-text">This button toggles the visibility of the station boundary line and fill layers
+            using setLayoutProperty()</div>
+        <button class="red-button" id="station-toggle">Toggle Stations</button>
+    </div>
+
+    <!-- map container div -->
+    <div id="map"></div>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+
+    <div id="map">
+        <div id="legend-container"> <!--this is the div that contains the LEGEND-->
+            <h2>Legend</h2>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #BF0D3E;"></div>
+                <div class="legend-label">Red Line</div>
             </div>
-            <div id="map">
-                <div id="legend-container"> <!--this is the div that contains the LEGEND-->
-                    <h2>Legend</h2>
-                    <div class="legend-item">
-                        <div class="legend-color" style="background-color: #BF0D3E;"></div>
-                        <div class="legend-label">Red Line</div>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color" style="background-color: #ED8B00;"></div>
-                        <div class="legend-label">Orange Line</div>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color" style="background-color: #009CDE;"></div>
-                        <div class="legend-label">Blue Line</div>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color" style="background-color: #00B140;"></div>
-                        <div class="legend-label">Green Line</div>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color" style="background-color: #FFD100;"></div>
-                        <div class="legend-label">Yellow Line</div>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-color" style="background-color: #919D9D;"></div>
-                        <div class="legend-label">Silver Line</div>
-                    </div>
-                </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #ED8B00;"></div>
+                <div class="legend-label">Orange Line</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #009CDE;"></div>
+                <div class="legend-label">Blue Line</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #00B140;"></div>
+                <div class="legend-label">Green Line</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #FFD100;"></div>
+                <div class="legend-label">Yellow Line</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #919D9D;"></div>
+                <div class="legend-label">Silver Line</div>
             </div>
         </div>
-        <script src="js/station-data.js"></script> <!--this is the STATION SCRIPT-->
-        <script src="js/line-data.js"></script> <!--this is the LINE SCRIPT-->
-        <script src="js/scripts.js"></script> <!--this is the LOCAL JS SCRIPT-->
+    </div>
+    </div>
+    <script src="js/station-data.js"></script> <!--this is the STATION SCRIPT-->
+    <script src="js/line-data.js"></script> <!--this is the LINE SCRIPT-->
+    <script src="js/scripts.js"></script> <!--this is the LOCAL JS SCRIPT-->
 
 </body>
 
-
 </html>
-

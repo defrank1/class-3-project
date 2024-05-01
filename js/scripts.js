@@ -1,26 +1,162 @@
-mapboxgl.accessToken = 'pk.eyJ1IjoiZGVmcmFuazEiLCJhIjoiY2x1bHZ0OWJyMHlhdjJrcDFsZzlwc3ZxMSJ9.XD1OM3LMVn2qoX9QMqR5Vg';
-var mapOptions = {
-    container: 'map', // container ID
-    style: 'mapbox://styles/mapbox/light-v11', // standard basemap
-    center: [-77.06964, 38.94194], // starting position [lng, lat]
-    zoom: 13.2, // starting zoom,
-}
+mapboxgl.accessToken = 'pk.eyJ1IjoiZGVmcmFuazEiLCJhIjoiY2x1bHZ0OWJyMHlhdjJrcDFsZzlwc3ZxMSJ9.XD1OM3LMVn2qoX9QMqR5Vg'; // access token
 
+// instantiate the map using a bounding box instead of center point and zoom level
 
-// instantiate the map
-const map = new mapboxgl.Map(mapOptions);
+const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/light-v11',
+    bounds: [
+        [
+          -77.00614525031526,
+          38.96845583380022
+        ],
+        [
+          -77.11016127603531,
+          38.96845583380022
+        ],
+        [
+          -77.11016127603531,
+          38.88641323923517
+        ],
+        [
+          -77.00614525031526,
+          38.88641323923517
+        ],
+        [
+          -77.00614525031526,
+          38.96845583380022
+        ]
+      ]
+});
 
-// add a navitation control
-const nav = new mapboxgl.NavigationControl();
-map.scrollZoom.disable();
-map.dragRotate.disable();
-map.touchZoomRotate.disableRotation();
+// when the map is finished it's initial load, add sources and layers.
+map.on('load', function () {
 
+    // add a geojson source for the Rock Creek West walkshed boundaries
+    map.addSource('station-boundaries', {
+        type: 'geojson',
+        data: 'data/merged-walkshed.geojson',
+        generateId: true // this will add an id to each feature, this is necessary if we want to use featureState (see below)
+    })
 
-// wait! don't execute this code until the map is finished it's initial load
-map.on('load', () => {
+    // first add the fill layer, using a match expression to give each a unique color based on its station_code property
+    map.addLayer({
+        id: 'station-boundaries-fill',
+        type: 'fill',
+        source: 'station-boundaries',
+        paint: {
+            'fill-color': [
+                'match',
+                ['get', 'station_code'],
+                '1',
+                '#b3e2cd',
+                '2',
+                '#fdcdac',
+                '3',
+                '#cbd5e8',
+                '4',
+                '#f4cae4',
+                '5',
+                '#e6f5c9',
+                '#ccc'
+            ],
+            // use a case expression to set the opacity of a polygon based on featureState
+            'fill-opacity': [
+                'case',
+                ['boolean', ['feature-state', 'hover'], false],
+                0.8,  // opacity when hover is false
+                0.4 // opacity when hover is true
+            ]
+        }
+    })
 
+    // add station outlines after the fill layer, so the outline is "on top" of the fill
+    map.addLayer({
+        id: 'station-boundaries-line',
+        type: 'line',
+        source: 'station-boundaries',
+        paint: {
+            'line-color': '#6b6b6b'
+        }
+    })
 
+    // this is a variable to store the id of the feature that is currently being hovered.
+    let hoveredPolygonId = null
+
+    // whenever the mouse moves on the 'station-boundaries-fill' layer, we check the id of the feature it is on top of, and set featureState for that feature.  The featureState we set is hover:true or hover:false
+    map.on('mousemove', 'station-boundaries-fill', (e) => {
+        // don't do anything if there are no features from this layer under the mouse pointer
+        if (e.features.length > 0) {
+            // if hoveredPolygonId already has an id in it, set the featureState for that id to hover: false
+            if (hoveredPolygonId !== null) {
+                map.setFeatureState(
+                    { source: 'station-boundaries', id: hoveredPolygonId },
+                    { hover: false }
+                );
+            }
+
+            // set hoveredPolygonId to the id of the feature currently being hovered
+            hoveredPolygonId = e.features[0].id;
+
+            // set the featureState of this feature to hover:true
+            map.setFeatureState(
+                { source: 'station-boundaries', id: hoveredPolygonId },
+                { hover: true }
+            );
+
+            // make the cursor a pointer to let the user know it is clickable
+            map.getCanvas().style.cursor = 'pointer'
+
+            // resets the feature state to the default (nothing is hovered) when the mouse leaves the 'station-boundaries-fill' layer
+            map.on('mouseleave', 'station-boundaries-fill', () => {
+                // set the featureState of the previous hovered feature to hover:false
+                if (hoveredPolygonId !== null) {
+                    map.setFeatureState(
+                        { source: 'station-boundaries', id: hoveredPolygonId },
+                        { hover: false }
+                    );
+                }
+
+                // clear hoveredPolygonId
+                hoveredPolygonId = null;
+
+                // set the cursor back to default
+                map.getCanvas().style.cursor = ''
+            });
+
+        }
+    });
+
+    // if the user clicks the 'station-boundaries-fill' layer, extract properties from the clicked feature, using jQuery to write them to another part of the page.
+    map.on('click', 'station-boundaries-fill', (e) => {
+        // get the station_name from the first item in the array e.features
+        var station_name = e.features[0].properties.station_name
+
+        // insert the station name into the sidebar using jQuery
+        $('#station').text(`You clicked ${station_name}!`)
+    });
+
+    // add a variable to keep track of the visible state of the station layers
+    let stationVisible = true
+
+    // when the toggle button is clicked, check stationVisible to get the current visibility state, update the layer visibility to reflect the opposite of the current state.
+    $('#station-toggle').on('click', function () {
+
+        // by default we will set the layers to visible
+        let value = 'visible'
+
+        // if the layers are already visible, set their visibility to 'none'
+        if (stationVisible === true) {
+            value = 'none'
+        }
+
+        // use setLayoutProperty to apply the visibility (either 'visible' or 'none' depending on the logic above)
+        map.setLayoutProperty('station-boundaries-fill', 'visibility', value)
+        map.setLayoutProperty('station-boundaries-line', 'visibility', value)
+
+        // flip the value in station_Visible to reflect the new state. (if true, it becomes false, if false it becomes true)
+        stationVisible = !stationVisible
+    })
 
     // list all the layers on the map in the console
     console.log(

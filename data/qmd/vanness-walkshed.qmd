@@ -1,0 +1,43 @@
+<!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
+<qgis version="3.36.2-Maidenhead">
+  <identifier></identifier>
+  <parentidentifier></parentidentifier>
+  <language></language>
+  <type></type>
+  <title></title>
+  <abstract>This layer was generated using the 'Time Map' algorithm from the TravelTime plugin version 1.9.0. The following parameters were used : 
+INPUT_DEPARTURE_SEARCHES: 
+INPUT_DEPARTURE_TIME: '2024-05-01T01:53:48Z'
+INPUT_DEPARTURE_TRAVEL_TIME: 900
+INPUT_DEPARTURE_TRNSPT_TYPE: 'walking'
+INPUT_DEPARTURE_TRNSPT_WALKING_TIME: 900
+INPUT_THROTTLING_STRATEGY: 1
+OUTPUT: memory:</abstract>
+  <keywords vocabulary="TTP_ALGORITHM">
+    <keyword>ttp_v4:time_map</keyword>
+  </keywords>
+  <keywords vocabulary="TTP_PARAMS">
+    <keyword>{"INPUT_DEPARTURE_SEARCHES": "", "INPUT_DEPARTURE_TIME": "'2024-05-01T01:53:48Z'", "INPUT_DEPARTURE_TRAVEL_TIME": 900, "INPUT_DEPARTURE_TRNSPT_TYPE": "'walking'", "INPUT_DEPARTURE_TRNSPT_WALKING_TIME": 900, "INPUT_THROTTLING_STRATEGY": 1, "OUTPUT": "memory:"}</keyword>
+  </keywords>
+  <keywords vocabulary="TTP_VERSION">
+    <keyword>1.9.0</keyword>
+  </keywords>
+  <links/>
+  <dates/>
+  <fees></fees>
+  <encoding></encoding>
+  <crs>
+    <spatialrefsys nativeFormat="Wkt">
+      <wkt></wkt>
+      <proj4></proj4>
+      <srsid>0</srsid>
+      <srid>0</srid>
+      <authid></authid>
+      <description></description>
+      <projectionacronym></projectionacronym>
+      <ellipsoidacronym></ellipsoidacronym>
+      <geographicflag>false</geographicflag>
+    </spatialrefsys>
+  </crs>
+  <extent/>
+</qgis>

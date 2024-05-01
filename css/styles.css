@@ -2,6 +2,82 @@
     font-family: sans-serif;
 }
 
+/* style the map container (full screen) */
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+/* add a floating sidebar in the top left */
+.sidebar {
+    position: absolute;
+    width: 250px;
+    z-index: 10;
+    background: #969696;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 15px;
+    margin-left: 15px;
+    font-family: sans-serif
+}
+
+/* styles for text areas in the sidebar */
+#station, .description-text {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  /* style the title */
+.title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom:8px;
+}
+
+/* button style */
+/* Beautiful button from https://getcssscan.com/css-buttons-examples */
+.red-button {
+        align-items: left;
+        background-color: #BF0D3E;
+        border: 2px solid #111;
+        border-radius: 8px;
+        box-sizing: border-box;
+        color: #ffffff;
+        cursor: pointer;
+        display: flex;
+        font-family: Inter, sans-serif;
+        font-size: 20px;
+        height: 48px;
+        justify-content: left;
+        line-height: 24px;
+        max-width: 100%;
+        padding: 10px 10px;
+        position: relative;
+        text-align: left;
+        text-decoration: none;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+      }
+
+  .red-button:hover { 
+    background-color: #16437E;
+    color: #ffffff;
+  }
+  
+  .red-button:active {
+    background: #09223b;
+    color: rgb(255, 255, 255, .7);
+  }
+  
+  .red-button:disabled { 
+    cursor: not-allowed;
+    background: rgba(0, 0, 0, .08);
+    color: rgba(0, 0, 0, .3);
+  }
+
 #legend-container {
 
     position: absolute;
