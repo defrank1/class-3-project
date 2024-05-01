@@ -10,16 +10,7 @@
     <link href="css/styles.css" rel="stylesheet"> <!--link to CSS-->
 
     <style>
-        html,
-        head,
-        body,
-
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
-/*not using these NAV styles as I have no NAV right now
+        /*not using these NAV styles as I have no NAV right now
 
         nav {
             padding: 1rem;
@@ -39,17 +30,6 @@
         }
 
         */
-
-        #map {
-            height: 100%;
-            flex-grow: 1;
-
-        }
-
-        .title {
-            font-weight: 600;
-        }
-
     </style>
 
 </head>
@@ -59,6 +39,9 @@
     <div class="sidebar">
         <div class="title">
             Transit-Oriented Opportunity in Washington, DC <!--this is the title in the sidebar-->
+        </div>
+        <div id="station">
+            <!--Click a station on the map, the station_name from the geojson data will be displayed here.-->
         </div>
         <div id="call-to-action"> <!--this is the paragraph/body with a call to action in the sidebar-->
             <p>This is a map of Rock Creek West, a large section of Washington, DC. The Washington metro's Red Line is
@@ -88,6 +71,7 @@
 
         <button class="blue-button" id="take-home">Take Me Home</button>
     </div>
+
 
     <!-- map container div -->
     <div id="map"></div>

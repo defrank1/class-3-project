@@ -1,12 +1,20 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGVmcmFuazEiLCJhIjoiY2x1bHZ0OWJyMHlhdjJrcDFsZzlwc3ZxMSJ9.XD1OM3LMVn2qoX9QMqR5Vg'; // access token
 
+const bounds = [ //constraint the map to just Rock Creek West area
+[-77.22926, 38.90519], [-77.03580, 38.97416]
+];
+
 // instantiate the map using a bounding box instead of center point and zoom level
 
 const map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/light-v11',
-    bounds: [[-77.10972, 38.90469],[-77.03636, 38.97227]]
+    container: 'map', // container ID
+    // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+    style: 'mapbox://styles/mapbox/light-v11', // style URL
+    center: [-77.06849, 38.94300], // starting position
+    zoom: 1, // starting zoom
+    maxBounds: bounds // Set the map's geographical boundaries to the bounds defined above 
 });
+
 
 // when the map is finished it's initial load, add sources and layers.
 map.on('load', function () {
@@ -114,8 +122,13 @@ map.on('load', function () {
         var station_name = e.features[0].properties.station_name
 
         // insert the station name into the sidebar using jQuery
-        $('#station').text(`You clicked ${station_name}!`)
+        $('#station').text(`You clicked on the ${station_name} walkshed!`)
     });
+
+    //listen for a click on a specific station-boundaries-fill layer and use fitBounds to change the map's camera view
+    $('#station-boundaries-fill').on('click', function(){
+        map.fitBounds([[-77.10243, 38.95183],[-77.07210, 38.97202]])
+    })
 
     // listen for a click on a specific button and use fitBounds to change the map's camera view.
     $('#friendship-button').on('click', function () {
