@@ -14,15 +14,16 @@
 /* add a floating sidebar in the top left */
 .sidebar {
   position: absolute;
-  width: 20%;
-  height: 80%;
+  width: 25%;
+  height: 90%;
   z-index: 10;
   background: #fff;
   padding: 12px;
   border-radius: 8px;
   margin-top: 15px;
   margin-left: 15px;
-  font-family: sans-serif
+  font-family: sans-serif;
+  overflow-y: auto;
 }
 
 #station {
@@ -121,17 +122,10 @@
   color: rgba(0, 0, 0, .3);
 }
 
-@media only screen and (max-width: 800px) {
-  #content-container {
-    flex-direction: column-reverse;
-    flex-shrink: 100;
-  }
-
   #map {
     height: 100%;
     flex-shrink: 0;
   }
-}
 
 #legend-container {
   z-index: 1;
