@@ -55,8 +55,9 @@ map.on('load', function () {
         type: 'line',
         source: 'station-boundaries',
         paint: {
-            'line-color': '#6b6b6b'
-        }
+            'line-color': '#6b6b6b', 
+            //add line-width here but it won't work for some reason
+        },
     })
 
     // this is a variable to store the id of the feature that is currently being hovered.
