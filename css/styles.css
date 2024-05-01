@@ -24,6 +24,7 @@
   margin-left: 15px;
   font-family: sans-serif;
   overflow-y: auto;
+  font-size: 15px;
 }
 
 #station {
@@ -164,3 +165,25 @@ legend-item {
   border-radius: 50%;
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  /* Sidebar adjustments */
+  .sidebar {
+    width: 25%;
+    height: 80%; /* Reduced height */
+    padding: 10px; /* Adjusted padding */
+    margin: 10px;
+    font-size: 12px;
+  }
+
+  /* Title adjustments */
+  .title {
+    font-size: 16px;
+  }
+
+  /* Button adjustments */
+  .red-button, .blue-button {
+    font-size: 11px; /* Smaller font size for buttons */
+    height: 36px; /* Reduced button height */
+    padding: 6px 10px; /* Reduced button padding */
+  }}
