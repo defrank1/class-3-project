@@ -13,7 +13,7 @@
 /* add a floating sidebar in the top left */
 .sidebar {
     position: absolute;
-    width: 250px;
+    width: 20%;
     z-index: 10;
     background: #d2d2d2;
     padding: 12px;
@@ -68,7 +68,7 @@
   }
   
   .red-button:active {
-    background: #09223b;
+    background: #16437E;
     color: rgb(255, 255, 255, .7);
   }
   
@@ -78,23 +78,23 @@
     color: rgba(0, 0, 0, .3);
   }
 
-  /*black button for the "take me home" button */
-  .black-button {
+  /*blue button for the "take me home" button */
+  .blue-button {
     align-items: left;
-    background-color: #111;
-    border: 2px solid #ffffff;
+    background-color: #16437E;
+    border: 2px solid #111;
     border-radius: 8px;
     box-sizing: border-box;
     color: #ffffff;
     cursor: pointer;
     display: flex;
     font-family: Inter, sans-serif;
-    font-size: 20px;
-    height: 48px;
+    font-size: 15px;
+    height: 36px;
     justify-content: left;
-    line-height: 24px;
+    line-height: 18px;
     max-width: 100%;
-    padding: 10px 10px;
+    padding: 7.5px 7.5px;
     position: relative;
     text-align: left;
     text-decoration: none;
@@ -103,17 +103,17 @@
     touch-action: manipulation;
   }
 
-.black-button:hover { 
-background-color: #16437E;
+.blue-button:hover { 
+background-color: #BF0D3E;
 color: #ffffff;
 }
 
-.black-button:active {
+.blue-button:active {
 background: #09223b;
 color: rgb(255, 255, 255, .7);
 }
 
-.black-button:disabled { 
+.blue-button:disabled { 
 cursor: not-allowed;
 background: rgba(0, 0, 0, .08);
 color: rgba(0, 0, 0, .3);

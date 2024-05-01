@@ -55,8 +55,8 @@ map.on('load', function () {
         type: 'line',
         source: 'station-boundaries',
         paint: {
-            'line-color': '#6b6b6b', 
-            //add line-width here but it won't work for some reason
+            'line-color': '#003594',
+            'line-width': 1.5, 
         },
     })
 
