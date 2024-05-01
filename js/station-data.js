@@ -1,5 +1,7 @@
 var stationData = [ // this is the second JS file that is basically a list of all the stations
 
+/*
+
     {
         "station_name": "Metro Center",
         "longitude": -77.028099,
@@ -19,6 +21,8 @@ var stationData = [ // this is the second JS file that is basically a list of al
         "latitude": 38.909499,
         "station_line": "Red"
     },
+
+    */
     {
         "station_name": "Woodley Park-Zoo/Adams Morgan",
         "longitude": -77.052648,
@@ -49,6 +53,8 @@ var stationData = [ // this is the second JS file that is basically a list of al
         "latitude": 38.960744,
         "station_line": "Red"
     },
+
+    /*
     {
         "station_name": "Bethesda",
         "longitude": -77.094431,
@@ -605,6 +611,7 @@ var stationData = [ // this is the second JS file that is basically a list of al
         "station_line": "Silver"
     }
 
+    */
 
 
 ]

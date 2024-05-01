@@ -1,7 +1,7 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGVmcmFuazEiLCJhIjoiY2x1bHZ0OWJyMHlhdjJrcDFsZzlwc3ZxMSJ9.XD1OM3LMVn2qoX9QMqR5Vg'; // access token
 
 const bounds = [ //constraint the map to just Rock Creek West area
-[-77.22926, 38.90519], [-77.03580, 38.97416]
+[-77.17479, 38.91502], [-77.00285, 38.97631]
 ];
 
 // instantiate the map using a bounding box instead of center point and zoom level

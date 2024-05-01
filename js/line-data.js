@@ -678,6 +678,8 @@ var lineData = [
         }
     },
 
+/*
+
     {
         "type": "Feature",
         "properties": {
@@ -1791,4 +1793,6 @@ var lineData = [
         }
     },
     // more geojson features follow...
+
+    */
 ];
