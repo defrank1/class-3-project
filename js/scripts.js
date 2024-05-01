@@ -5,28 +5,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGVmcmFuazEiLCJhIjoiY2x1bHZ0OWJyMHlhdjJrcDFsZ
 const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/light-v11',
-    bounds: [
-        [
-          -77.00614525031526,
-          38.96845583380022
-        ],
-        [
-          -77.11016127603531,
-          38.96845583380022
-        ],
-        [
-          -77.11016127603531,
-          38.88641323923517
-        ],
-        [
-          -77.00614525031526,
-          38.88641323923517
-        ],
-        [
-          -77.00614525031526,
-          38.96845583380022
-        ]
-      ]
+    bounds: [[-77.16628, 38.89068], [-77.01112, 38.98512]]
 });
 
 // when the map is finished it's initial load, add sources and layers.
@@ -129,6 +108,7 @@ map.on('load', function () {
 
     // if the user clicks the 'station-boundaries-fill' layer, extract properties from the clicked feature, using jQuery to write them to another part of the page.
     map.on('click', 'station-boundaries-fill', (e) => {
+        console.log('SOMEONE CLICKED THE MAP', e.features[0].properties.station_name)
         // get the station_name from the first item in the array e.features
         var station_name = e.features[0].properties.station_name
 
@@ -136,78 +116,101 @@ map.on('load', function () {
         $('#station').text(`You clicked ${station_name}!`)
     });
 
-    // add a variable to keep track of the visible state of the station layers
-    let stationVisible = true
+    // listen for a click on a specific button and use fitBounds to change the map's camera view.
+    $('#friendship-button').on('click', function () {
+        map.fitBounds([[-77.10243, 38.95183],[-77.07210, 38.97202]])
+    })
 
-    // when the toggle button is clicked, check stationVisible to get the current visibility state, update the layer visibility to reflect the opposite of the current state.
-    $('#station-toggle').on('click', function () {
+    $('#tenleytown-button').on('click', function () {
+        map.fitBounds([[-77.09763, 38.93428],[-77.06189, 38.96172]])
+    })
 
-        // by default we will set the layers to visible
-        let value = 'visible'
+    $('#vanness-button').on('click', function () {
+        map.fitBounds([[-77.07883, 38.93144],[-77.05159, 38.95414]])
+    })
 
-        // if the layers are already visible, set their visibility to 'none'
-        if (stationVisible === true) {
-            value = 'none'
+    $('#cleveland-button').on('click', function () {
+        map.fitBounds([[-77.07161, 38.92349],[-77.04557, 38.94429]])
+    })
+
+    $('#woodley-button').on('click', function () {
+        map.fitBounds([[-77.06945, 38.91659],[-77.04105, 38.93510]])
+    })
+
+
+
+// add a variable to keep track of the visible state of the station layers
+let stationVisible = true
+
+// when the toggle button is clicked, check stationVisible to get the current visibility state, update the layer visibility to reflect the opposite of the current state.
+$('#station-toggle').on('click', function () {
+
+    // by default we will set the layers to visible
+    let value = 'visible'
+
+    // if the layers are already visible, set their visibility to 'none'
+    if (stationVisible === true) {
+        value = 'none'
+    }
+
+    // use setLayoutProperty to apply the visibility (either 'visible' or 'none' depending on the logic above)
+    map.setLayoutProperty('station-boundaries-fill', 'visibility', value)
+    map.setLayoutProperty('station-boundaries-line', 'visibility', value)
+
+    // flip the value in station_Visible to reflect the new state. (if true, it becomes false, if false it becomes true)
+    stationVisible = !stationVisible
+})
+
+// list all the layers on the map in the console
+console.log(
+    map.getStyle().layers
+)
+
+// loop over the stationData array to make a marker for each record
+stationData.forEach(function (stationRecord) {
+
+    // create a popup to attach to the marker
+    const popup = new mapboxgl.Popup({
+        offset: 24,
+        anchor: 'bottom'
+    }).setText(
+        `${stationRecord.station_name} is a WMATA metro station on the ${stationRecord.station_line} Line`
+    );
+    const el = document.createElement('div');
+    el.className = 'single-station';
+    if (stationRecord.transfer_station === true) {
+        el.className = 'transfer-station'
+    }
+
+    // create a marker, set the coordinates, add the popup, add it to the map
+    new mapboxgl.Marker(el)
+        .setLngLat([stationRecord.longitude, stationRecord.latitude])
+        .setPopup(popup)
+        .addTo(map);
+})
+
+// loop over the lineData array to make a rail line for each record
+lineData.forEach(function (lineRecord) {
+
+    // create a line, set the coordinates, add it to the map
+    map.addLayer({
+        id: lineRecord.properties.id,
+        type: 'line',
+        source: {
+            type: 'geojson',
+            data: lineRecord
+        },
+        layout: {
+            'line-cap': 'round',
+            'line-join': 'round'
+
+        },
+        paint: {
+            'line-color': lineRecord.properties.color,
+            'line-width': 15
         }
-
-        // use setLayoutProperty to apply the visibility (either 'visible' or 'none' depending on the logic above)
-        map.setLayoutProperty('station-boundaries-fill', 'visibility', value)
-        map.setLayoutProperty('station-boundaries-line', 'visibility', value)
-
-        // flip the value in station_Visible to reflect the new state. (if true, it becomes false, if false it becomes true)
-        stationVisible = !stationVisible
     })
 
-    // list all the layers on the map in the console
-    console.log(
-        map.getStyle().layers
-    )
 
-    // loop over the stationData array to make a marker for each record
-    stationData.forEach(function (stationRecord) {
-
-        // create a popup to attach to the marker
-        const popup = new mapboxgl.Popup({
-            offset: 24,
-            anchor: 'bottom'
-        }).setText(
-            `${stationRecord.station_name} is a WMATA metro station on the ${stationRecord.station_line} Line`
-        );
-        const el = document.createElement('div');
-        el.className = 'single-station';
-        if (stationRecord.transfer_station === true) {
-            el.className = 'transfer-station'
-        }
-
-        // create a marker, set the coordinates, add the popup, add it to the map
-        new mapboxgl.Marker(el)
-            .setLngLat([stationRecord.longitude, stationRecord.latitude])
-            .setPopup(popup)
-            .addTo(map);
-    })
-
-    // loop over the lineData array to make a rail line for each record
-    lineData.forEach(function (lineRecord) {
-
-        // create a line, set the coordinates, add it to the map
-        map.addLayer({
-            id: lineRecord.properties.id,
-            type: 'line',
-            source: {
-                type: 'geojson',
-                data: lineRecord
-            },
-            layout: {
-                'line-cap': 'round',
-                'line-join': 'round'
-
-            },
-            paint: {
-                'line-color': lineRecord.properties.color,
-                'line-width': 15
-            }
-        })
-
-
-    })
+})
 })
