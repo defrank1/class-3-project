@@ -9,7 +9,7 @@ const bounds = [ //constraint the map to just Rock Creek West area
 const map = new mapboxgl.Map({
     container: 'map', // container ID
     // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
-    style: 'mapbox://styles/mapbox/light-v11', // style URL
+    style: 'mapbox://styles/mapbox/standard', // style URL
     center: [-77.06849, 38.94300], // starting position
     zoom: 1, // starting zoom
     maxBounds: bounds // Set the map's geographical boundaries to the bounds defined above 
@@ -51,8 +51,8 @@ map.on('load', function () {
             'fill-opacity': [
                 'case',
                 ['boolean', ['feature-state', 'hover'], false],
-                0.8,  // opacity when hover is false
-                0.4 // opacity when hover is true
+                0.5,  // opacity when hover is true
+                0.1 // opacity when hover is false
             ]
         }
     })
@@ -64,7 +64,7 @@ map.on('load', function () {
         source: 'station-boundaries',
         paint: {
             'line-color': '#003594',
-            'line-width': 1.5, 
+            'line-width': 1, 
         },
     })
 
@@ -126,13 +126,13 @@ map.on('load', function () {
     });
 
     //listen for a click on a specific layer and use fitBounds to change the map's camera view
-    $('friendship-walkshed').on('click', function(){
+    map.on('click', 'station-boundaries-fill', (e) => {
         map.fitBounds([[-77.10243, 38.95183],[-77.07210, 38.97202]])
     })
 
     // listen for a click on a specific button and use fitBounds to change the map's camera view.
     $('#friendship-button').on('click', function () {
-        map.fitBounds([[-77.10243, 38.95183],[-77.07210, 38.97202]])
+        map.fitBounds([[-77.10103, 38.95039],[-77.07451, 38.96737]])
     })
 
     $('#tenleytown-button').on('click', function () {
@@ -148,7 +148,7 @@ map.on('load', function () {
     })
 
     $('#woodley-button').on('click', function () {
-        map.fitBounds([[-77.06945, 38.91659],[-77.04105, 38.93510]])
+        map.fitBounds([[-77.07077, 38.91560],[-77.03774, 38.93559]])
     })
 
 
