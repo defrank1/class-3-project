@@ -55,9 +55,10 @@
 
         #sidebar {
             display: flex;
+            max-height: 5vh;
             padding: 1rem;
             font-size: 0.9rem;
-            overflow-y: scroll;
+            overflow-y: auto;
             box-sizing: border-box;
         }
 
@@ -77,12 +78,8 @@
             }
 
             #map {
-                height: 60%;
+                height: 100%;
                 flex-shrink: 0;
-            }
-
-            #sidebar {
-                width: 100%;
             }
         }
     </style>
