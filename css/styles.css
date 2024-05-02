@@ -186,5 +186,5 @@ legend-item {
   .red-button, .blue-button {
     font-size: 10px; /* Smaller font size for buttons */
     height: 30px; /* Reduced button height */
-    padding: 6px 10px; /* Reduced button padding */
+    padding: 6px 6px; /* Reduced button padding */
   }}
