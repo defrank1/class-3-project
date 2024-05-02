@@ -308,4 +308,11 @@ map.on('load', function () {
 
 
     })
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v12',
+        center: [-73.99209, 40.68933],
+        zoom: 8.8
+    })
+
 })
