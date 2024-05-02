@@ -24,7 +24,7 @@ var stationData = [ // this is the second JS file that is basically a list of al
 
     */
     {
-        "station_name": "Woodley Park-Zoo/Adams Morgan",
+        "station_name": "Woodley Park",
         "longitude": -77.052648,
         "latitude": 38.924999,
         "station_line": "Red"

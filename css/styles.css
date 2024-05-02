@@ -14,8 +14,8 @@
 /* add a floating sidebar in the top left */
 .sidebar {
   position: absolute;
-  width: 25%;
-  height: 90%;
+  width: 300px;
+  height: flex;
   z-index: 10;
   background: #fff;
   padding: 12px;
@@ -23,7 +23,6 @@
   margin-top: 15px;
   margin-left: 15px;
   font-family: sans-serif;
-  overflow-y: auto;
   font-size: 15px;
 }
 
