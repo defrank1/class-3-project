@@ -188,4 +188,5 @@ legend-item {
     font-size: 10px; /* Smaller font size for buttons */
     height: 30px; /* Reduced button height */
     padding: 6px 6px; /* Reduced button padding */
+    font-weight: bold;
   }}
