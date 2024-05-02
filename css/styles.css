@@ -169,7 +169,6 @@ legend-item {
   /* Sidebar adjustments */
   .sidebar {
     width: 30%;
-    height: 450px;
     max-height: 450px; /* Reduced height */
     padding: 10px; /* Adjusted padding */
     margin-top: 10px;
