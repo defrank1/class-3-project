@@ -19,7 +19,7 @@ const map = new mapboxgl.Map({
 // when the map is finished it's initial load, add sources and layers.
 map.on('load', function () {
 
-    map.addSource('merged-walkshed', {
+    map.addSource('merged-walkshed',{
         type: 'geojson',
         data: 'data/merged-walkshed.geojson',
         generateID: true // This adds an id to each feature
