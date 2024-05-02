@@ -169,14 +169,12 @@ legend-item {
   /* Sidebar adjustments */
   .sidebar {
     width: 30%;
-    max-height: 300px; /* Reduced height */
+    max-height: 350px; /* Reduced height */
     padding: 10px; /* Adjusted padding */
     margin-top: 10px;
     margin-left: 10px;
     font-size: 12px;
     overflow: auto;
-    border: 1px solid #ccc;
-
   }
 
   /* Title adjustments */
