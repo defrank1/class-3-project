@@ -82,7 +82,7 @@
 
 /*blue button for the "take me home" button */
 .blue-button {
-  align-items: left;
+  align-items: normal;
   background-color: #16437E;
   border: 2px solid #111;
   border-radius: 8px;
@@ -94,12 +94,12 @@
   font-size: 15px;
   font-size-adjust: 10px;
   height: 36px;
-  justify-content: left;
+  justify-content: normal;
   line-height: 18px;
   max-width: 100%;
   padding: 7.5px 7.5px;
   position: relative;
-  text-align: left;
+  text-align: normal;
   text-decoration: none;
   user-select: none;
   -webkit-user-select: none;
