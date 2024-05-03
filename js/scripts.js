@@ -11,7 +11,6 @@ const map = new mapboxgl.Map({
     // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
     style: 'mapbox://styles/mapbox/standard', // style URL
     center: [-77.06849, 38.94300], // starting position
-    zoom: 1, // starting zoom
     maxBounds: bounds // Set the map's geographical boundaries to the bounds defined above 
 });
 
@@ -304,6 +303,13 @@ map.on('load', function () {
             paint: {
                 'line-color': lineRecord.properties.color,
                 'line-width': 15
+
+                /* try this to get different line widths per zoom level       
+                {
+                    stops: [[5, 3], [100, 50]]
+                }
+
+                          */
             }
         })
 

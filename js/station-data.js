@@ -1,28 +1,28 @@
 var stationData = [ // this is the second JS file that is basically a list of all the stations
 
-/*
-
-    {
-        "station_name": "Metro Center",
-        "longitude": -77.028099,
-        "latitude": 38.898303,
-        "station_line": "Red",
-        "transfer_station": true
-    },
-    {
-        "station_name": "Farragut North",
-        "longitude": -77.039766,
-        "latitude": 38.903192,
-        "station_line": "Red"
-    },
-    {
-        "station_name": "Dupont Circle",
-        "longitude": -77.04362,
-        "latitude": 38.909499,
-        "station_line": "Red"
-    },
-
-    */
+    /*
+    
+        {
+            "station_name": "Metro Center",
+            "longitude": -77.028099,
+            "latitude": 38.898303,
+            "station_line": "Red",
+            "transfer_station": true
+        },
+        {
+            "station_name": "Farragut North",
+            "longitude": -77.039766,
+            "latitude": 38.903192,
+            "station_line": "Red"
+        },
+        {
+            "station_name": "Dupont Circle",
+            "longitude": -77.04362,
+            "latitude": 38.909499,
+            "station_line": "Red"
+        },
+    
+        */
     {
         "station_name": "Woodley Park",
         "longitude": -77.052648,
