@@ -7,6 +7,7 @@
             "properties": {
                 "station_code": "1",
                 "station_name": "Friendship Heights",
+                "low_density_percent": "77%",
                 "layer": "friendship-walkshed",
                 "shape_area": 3062881.45,
                 "shape_leng": 12760.617
@@ -2892,6 +2893,7 @@
             "properties": {
                 "station_code": "2",
                 "station_name": "Tenleytown",
+                "low_density_percent": "87%",
                 "layer": "tenleytown-walkshed",
                 "shape_area": 3161853.879,
                 "shape_leng": 14108.928
@@ -5913,6 +5915,7 @@
             "properties": {
                 "station_code": "3",
                 "station_name": "Van Ness-UDC",
+                "low_density_percent": "72%",
                 "layer": "vanness-walkshed",
                 "shape_area": 2072664.331,
                 "shape_leng": 10608.808
@@ -8127,6 +8130,7 @@
             "properties": {
                 "station_code": "4",
                 "station_name": "Cleveland Park",
+                "low_density_percent": "67%",
                 "layer": "cleveland-walkshed",
                 "shape_area": 2340962.39,
                 "shape_leng": 13319.237
@@ -11205,6 +11209,7 @@
             "properties": {
                 "station_code": "5",
                 "station_name": "Woodley Park-Zoo",
+                "low_density_percent": "44%",
                 "layer": "woodley-walkshed",
                 "shape_area": 1921029.628,
                 "shape_leng": 11075.027

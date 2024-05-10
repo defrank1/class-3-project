@@ -130,22 +130,29 @@
 }
 
 #legend-container {
-  z-index: 1;
-  /* Ensure legend appears above the map */
-
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
 }
 
-legend-item {
+.legend-item {
+  margin-bottom: 5px;
   display: flex;
   align-items: center;
-  margin-bottom: 5px;
 }
 
 .legend-color {
-  width: 10px;
+  width: 20px;
   height: 10px;
-  margin-right: 5px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
 }
+
+.legend-label {
+  font-size: 14px;
+}
+
 
 .single-station {
   background-image: url('../mapbox-markers/single-station.png');

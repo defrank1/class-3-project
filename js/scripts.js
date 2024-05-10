@@ -42,59 +42,59 @@ map.on('load', function () {
 
     });
 
-    
-        map.addLayer({
-            id: 'moderate-density-residential',
-            type: 'fill',
-            source: 'resi-zones-merged-walkshed',
-            filter: ['==', 'resi_code', '2'], //Filter features with layer property equal to 'low-density-residential' so you load each one at a time (and give eaceh a different shade/color)...
-            paint: {
-                'fill-color': '#a1dab4',
-                'fill-opacity': [
-                    'case',
-                    ['boolean', ['feature-state', 'hover'], false],
-                    1,  // opacity when hover is true
-                    1, // opacity when hover is false
-                ]
-            }
-    
-        });
 
-    
-        map.addLayer({
-            id: 'medium-density-residential',
-            type: 'fill',
-            source: 'resi-zones-merged-walkshed',
-            filter: ['==', 'resi_code', '3'], //Filter features with layer property equal to 'low-density-residential' so you load each one at a time (and give eaceh a different shade/color)...
-            paint: {
-                'fill-color': '#41b6c4',
-                'fill-opacity': [
-                    'case',
-                    ['boolean', ['feature-state', 'hover'], false],
-                    1,  // opacity when hover is true
-                    1, // opacity when hover is false
-                ]
-            }
-    
-        });
-    
-        map.addLayer({
-            id: 'high-density-residential',
-            type: 'fill',
-            source: 'resi-zones-merged-walkshed',
-            filter: ['==', 'resi_code', '4'], //Filter features with layer property equal to 'low-density-residential' so you load each one at a time (and give eaceh a different shade/color)...
-            paint: {
-                'fill-color': '#225ea8',
-                'fill-opacity': [
-                    'case',
-                    ['boolean', ['feature-state', 'hover'], false],
-                    1,  // opacity when hover is true
-                    1, // opacity when hover is false
-                ]
-            }
-    
-        });
-    
+    map.addLayer({
+        id: 'moderate-density-residential',
+        type: 'fill',
+        source: 'resi-zones-merged-walkshed',
+        filter: ['==', 'resi_code', '2'], //Filter features with layer property equal to 'low-density-residential' so you load each one at a time (and give eaceh a different shade/color)...
+        paint: {
+            'fill-color': '#a1dab4',
+            'fill-opacity': [
+                'case',
+                ['boolean', ['feature-state', 'hover'], false],
+                1,  // opacity when hover is true
+                1, // opacity when hover is false
+            ]
+        }
+
+    });
+
+
+    map.addLayer({
+        id: 'medium-density-residential',
+        type: 'fill',
+        source: 'resi-zones-merged-walkshed',
+        filter: ['==', 'resi_code', '3'], //Filter features with layer property equal to 'low-density-residential' so you load each one at a time (and give eaceh a different shade/color)...
+        paint: {
+            'fill-color': '#41b6c4',
+            'fill-opacity': [
+                'case',
+                ['boolean', ['feature-state', 'hover'], false],
+                1,  // opacity when hover is true
+                1, // opacity when hover is false
+            ]
+        }
+
+    });
+
+    map.addLayer({
+        id: 'high-density-residential',
+        type: 'fill',
+        source: 'resi-zones-merged-walkshed',
+        filter: ['==', 'resi_code', '4'], //Filter features with layer property equal to 'low-density-residential' so you load each one at a time (and give eaceh a different shade/color)...
+        paint: {
+            'fill-color': '#225ea8',
+            'fill-opacity': [
+                'case',
+                ['boolean', ['feature-state', 'hover'], false],
+                1,  // opacity when hover is true
+                1, // opacity when hover is false
+            ]
+        }
+
+    });
+
 
 
     // add a geojson source for the walksheds
@@ -253,14 +253,14 @@ map.on('load', function () {
     // Define a custom function to handle click events on a map layer
     function setupClickHandler(layerName) {
         map.on('click', layerName, (e) => {
-            console.log('SOMEONE CLICKED THE MAP', e.features[0].properties.station_name)
             // Check if there are features from this layer at the clicked location
             if (e.features.length > 0) {
                 // Get the station_name property from the clicked feature
                 var station_name = e.features[0].properties.station_name;
-
+                // Get the low_density_percent property from the clicked feature
+                var low_density_percent = e.features[0].properties.low_density_percent;
                 // Update the sidebar content with the clicked station name
-                $('#station').text(`You clicked on the ${station_name} walkshed!`);
+                $('#station').text(`${low_density_percent} of the residential land within a 15-minute walk of the ${station_name} metro station is zoned for low density!`);
             }
         });
     }
