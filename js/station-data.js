@@ -25,32 +25,32 @@ var stationData = [ // this is the second JS file that is basically a list of al
         */
     {
         "station_name": "Woodley Park",
-        "longitude": -77.052648,
-        "latitude": 38.924999,
+        "longitude": -77.05237,
+        "latitude":  38.92502,
         "station_line": "Red"
     },
     {
         "station_name": "Cleveland Park",
-        "longitude": -77.058226,
-        "latitude": 38.934703,
+        "longitude": -77.05803, 
+        "latitude": 38.93474,
         "station_line": "Red"
     },
     {
         "station_name": "Van Ness-UDC",
-        "longitude": -77.063511,
-        "latitude": 38.94362,
+        "longitude": -77.06351,
+        "latitude": 38.94417,
         "station_line": "Red"
     },
     {
         "station_name": "Tenleytown-AU",
-        "longitude": -77.079615,
-        "latitude": 38.947808,
+        "longitude": -77.07923,
+        "latitude": 38.94806,
         "station_line": "Red"
     },
     {
         "station_name": "Friendship Heights",
-        "longitude": -77.085969,
-        "latitude": 38.960744,
+        "longitude": -77.08506,
+        "latitude": 38.95947,
         "station_line": "Red"
     },
 
