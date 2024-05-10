@@ -27,8 +27,10 @@
   overflow: scroll;
 }
 
-#station {
+#percent-callout {
   font-style: italic;
+  font-size: 20px;
+  font-weight: 500px;
 }
 
 /* style the title */
@@ -130,14 +132,24 @@
 }
 
 #legend-container {
+  position: fixed;
+  /* Set the position to fixed to position the legend relative to the viewport */
+  bottom: 20px;
+  /* Distance from the bottom edge of the viewport */
+  right: 20px;
+  /* Distance from the right edge of the viewport */
   border: 1px solid #ccc;
-  padding: 10px;
+  /* Border style with color */
   background-color: #f9f9f9;
+  /* Background color of the legend container */
   font-family: Arial, sans-serif;
+  /* Font family for legend text */
+  padding: 10px;
+  /* Padding inside the legend container */
 }
 
 .legend-item {
-  margin-bottom: 5px;
+  margin-bottom: 2px;
   display: flex;
   align-items: center;
 }
@@ -151,6 +163,16 @@
 
 .legend-label {
   font-size: 14px;
+  font-weight: bold;
+}
+
+.legend-description {
+  font-weight: lighter;
+  margin-bottom: 3px;
+}
+
+.legend-note {
+  font-size: 12px;
 }
 
 

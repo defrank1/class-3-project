@@ -260,7 +260,7 @@ map.on('load', function () {
                 // Get the low_density_percent property from the clicked feature
                 var low_density_percent = e.features[0].properties.low_density_percent;
                 // Update the sidebar content with the clicked station name
-                $('#station').text(`${low_density_percent} of the residential land within a 15-minute walk of the ${station_name} metro station is zoned for low density!`);
+                $('#percent-callout').text(`${low_density_percent} of the residential land within a 15-minute walk of the ${station_name} metro station is zoned for low density!`);
             }
         });
     }

@@ -40,7 +40,7 @@
         <div class="title">
             Transit-Oriented Opportunity in Washington, DC <!--this is the title in the sidebar-->
         </div>
-        <div id="station">
+        <div id="percent-callout">
             <!--Click a station on the map, the station_name from the geojson data will be displayed here.-->
         </div>
         <div id="call-to-action"> <!--this is the paragraph/body with a call to action in the sidebar-->
@@ -83,31 +83,33 @@
         integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 
     <div id="legend-container">
-        <h2>Legend</h2>
+        <h2>Land Use Categories</h2>
         <div class="legend-item">
-            <div class="legend-color" style="background-color: #BF0D3E;"></div>
-            <div class="legend-label">Red Line</div>
+            <div class="legend-color" style="background-color: #ffffcc;"></div>
+            <div class="legend-label">Low Density:
+                <div class="legend-description">Single family detached and semi-detached housing</div>
+            </div>
         </div>
         <div class="legend-item">
-            <div class="legend-color" style="background-color: #ED8B00;"></div>
-            <div class="legend-label">Orange Line</div>
+            <div class="legend-color" style="background-color: #a1dab4;"></div>
+            <div class="legend-label">Moderate Density:
+                <div class="legend-description">Row houses and low-rise garden apartments</div>
+            </div>
         </div>
         <div class="legend-item">
-            <div class="legend-color" style="background-color: #009CDE;"></div>
-            <div class="legend-label">Blue Line</div>
+            <div class="legend-color" style="background-color: #41b6c4;"></div>
+            <div class="legend-label">Medium Density:
+                <div class="legend-description">Mid-rise apartments</div>
+            </div>
         </div>
-        <div class="legend-item">
-            <div class="legend-color" style="background-color: #00B140;"></div>
-            <div class="legend-label">Green Line</div>
+    <div class="legend-item">
+        <div class="legend-color" style="background-color: #225ea8;"></div>
+        <div class="legend-label">High Density:
+            <div class="legend-description">High-rise apartments</div>
         </div>
-        <div class="legend-item">
-            <div class="legend-color" style="background-color: #FFD100;"></div>
-            <div class="legend-label">Yellow Line</div>
-        </div>
-        <div class="legend-item">
-            <div class="legend-color" style="background-color: #919D9D;"></div>
-            <div class="legend-label">Silver Line</div>
-        </div>
+    </div>
+    <div class="legend-note"><i>Note: Defines neighborhoods generally, but not exclusively.</i></div>
+    </div>
     </div>
     <script src="js/station-data.js"></script> <!--this is the STATION SCRIPT-->
     <script src="js/line-data.js"></script> <!--this is the LINE SCRIPT-->
