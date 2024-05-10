@@ -1,7 +1,7 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGVmcmFuazEiLCJhIjoiY2x1bHZ0OWJyMHlhdjJrcDFsZzlwc3ZxMSJ9.XD1OM3LMVn2qoX9QMqR5Vg'; // access token
 
 const bounds = [ //constraint the map to just Rock Creek West area
-[-77.16192, 38.88541], [-77.01347, 38.98450]
+    [-77.16192, 38.88541], [-77.01347, 38.98450]
 ];
 
 // instantiate the map using a bounding box instead of center point and zoom level
@@ -344,7 +344,7 @@ map.on('load', function () {
 
 
 
-//create a marker
+        //create a marker
         const el = document.createElement('div');
         el.className = 'single-station';
         if (stationRecord.transfer_station === true) {
