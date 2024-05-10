@@ -18,10 +18,89 @@ const map = new mapboxgl.Map({
 // when the map is finished it's initial load, add sources and layers.
 map.on('load', function () {
 
-    // add a geojson source for the borough boundaries
+    // add a geojson source for the  resi-density layers
+    map.addSource('resi-zones-merged-walkshed', {
+        type: 'geojson',
+        data: 'data/walkshed-resi-zones/resi-zones-merged-walkshed.geojson',
+        generateID: true //This adds an ID to each feature
+    });
+
+    map.addLayer({
+        id: 'low-density-residential',
+        type: 'fill',
+        source: 'resi-zones-merged-walkshed',
+        filter: ['==', 'resi_code', '1'], //Filter features with layer property equal to 'low-density-residential' so you load each one at a time (and give eaceh a different shade/color)...
+        paint: {
+            'fill-color': '#ffffcc',
+            'fill-opacity': [
+                'case',
+                ['boolean', ['feature-state', 'hover'], false],
+                1,  // opacity when hover is true
+                1, // opacity when hover is false
+            ]
+        }
+
+    });
+
+    
+        map.addLayer({
+            id: 'moderate-density-residential',
+            type: 'fill',
+            source: 'resi-zones-merged-walkshed',
+            filter: ['==', 'resi_code', '2'], //Filter features with layer property equal to 'low-density-residential' so you load each one at a time (and give eaceh a different shade/color)...
+            paint: {
+                'fill-color': '#a1dab4',
+                'fill-opacity': [
+                    'case',
+                    ['boolean', ['feature-state', 'hover'], false],
+                    1,  // opacity when hover is true
+                    1, // opacity when hover is false
+                ]
+            }
+    
+        });
+
+    
+        map.addLayer({
+            id: 'medium-density-residential',
+            type: 'fill',
+            source: 'resi-zones-merged-walkshed',
+            filter: ['==', 'resi_code', '3'], //Filter features with layer property equal to 'low-density-residential' so you load each one at a time (and give eaceh a different shade/color)...
+            paint: {
+                'fill-color': '#41b6c4',
+                'fill-opacity': [
+                    'case',
+                    ['boolean', ['feature-state', 'hover'], false],
+                    1,  // opacity when hover is true
+                    1, // opacity when hover is false
+                ]
+            }
+    
+        });
+    
+        map.addLayer({
+            id: 'high-density-residential',
+            type: 'fill',
+            source: 'resi-zones-merged-walkshed',
+            filter: ['==', 'resi_code', '4'], //Filter features with layer property equal to 'low-density-residential' so you load each one at a time (and give eaceh a different shade/color)...
+            paint: {
+                'fill-color': '#225ea8',
+                'fill-opacity': [
+                    'case',
+                    ['boolean', ['feature-state', 'hover'], false],
+                    1,  // opacity when hover is true
+                    1, // opacity when hover is false
+                ]
+            }
+    
+        });
+    
+
+
+    // add a geojson source for the walksheds
     map.addSource('merged-walkshed', {
         type: 'geojson',
-        data: 'data/merged-walkshed.geojson',
+        data: 'data/walksheds/merged-walkshed.geojson',
         generateID: true // This adds an id to each feature
     });
 
@@ -35,8 +114,8 @@ map.on('load', function () {
             'fill-opacity': [
                 'case',
                 ['boolean', ['feature-state', 'hover'], false],
-                0.6,  // opacity when hover is true
-                0.1 // opacity when hover is false
+                0.0,  // opacity when hover is true
+                0.0 // opacity when hover is false
             ]
         }
     });
@@ -51,8 +130,8 @@ map.on('load', function () {
             'fill-opacity': [
                 'case',
                 ['boolean', ['feature-state', 'hover'], false],
-                0.6,  // opacity when hover is true
-                0.1 // opacity when hover is false
+                0.0,  // opacity when hover is true
+                0.0 // opacity when hover is false
             ]
         }
     });
@@ -67,8 +146,8 @@ map.on('load', function () {
             'fill-opacity': [
                 'case',
                 ['boolean', ['feature-state', 'hover'], false],
-                0.6,  // opacity when hover is true
-                0.1 // opacity when hover is false
+                0.0,  // opacity when hover is true
+                0.0 // opacity when hover is false
             ]
         }
     });
@@ -83,8 +162,8 @@ map.on('load', function () {
             'fill-opacity': [
                 'case',
                 ['boolean', ['feature-state', 'hover'], false],
-                0.6,  // opacity when hover is true
-                0.1 // opacity when hover is false
+                0.0,  // opacity when hover is true
+                0.0 // opacity when hover is false
             ]
         }
     });
@@ -99,8 +178,8 @@ map.on('load', function () {
             'fill-opacity': [
                 'case',
                 ['boolean', ['feature-state', 'hover'], false],
-                0.6,  // opacity when hover is true
-                0.1 // opacity when hover is false
+                0.0,  // opacity when hover is true
+                0.0 // opacity when hover is false
             ]
         }
     });

@@ -1,8 +1,26 @@
 {
     "type": "FeatureCollection",
+    "name": "merged-walkshed",
+    "crs": {
+        "type": "name",
+        "properties": {
+            "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+        }
+    },
     "features": [
         {
             "type": "Feature",
+            "properties": {
+                "id": "cleveland",
+                "prop_is_only_walking": "true",
+                "layer": "cleveland-walkshed",
+                "path": "/Users/andrewdefrank/Desktop/class-3-project/data/cleveland-walkshed.geojson",
+                "shape_area": 0.0,
+                "shape_area1": 0.0,
+                "shape_area2": 2340962.39,
+                "shape_leng": null,
+                "shape_leng1": 13319.237
+            },
             "geometry": {
                 "type": "MultiPolygon",
                 "coordinates": [
@@ -3067,18 +3085,21 @@
                         ]
                     ]
                 ]
-            },
-            "id": 4,
-            "properties": {
-                "station_code": "4",
-                "station_name": "Cleveland Park",
-                "layer": "cleveland-walkshed",
-                "shape_area": 2340962.39,
-                "shape_leng": 13319.237
             }
         },
         {
             "type": "Feature",
+            "properties": {
+                "id": "friendship",
+                "prop_is_only_walking": "true",
+                "layer": "friendship-walkshed",
+                "path": "/Users/andrewdefrank/Desktop/class-3-project/data/friendship-walkshed.geojson",
+                "shape_area": 0.0,
+                "shape_area1": 0.0,
+                "shape_area2": 3062881.45,
+                "shape_leng": null,
+                "shape_leng1": 12760.617
+            },
             "geometry": {
                 "type": "MultiPolygon",
                 "coordinates": [
@@ -5951,18 +5972,21 @@
                         ]
                     ]
                 ]
-            },
-            "id": 1,
-            "properties": {
-                "station_code": "1",
-                "station_name": "Friendship Heights",
-                "layer": "friendship-walkshed",
-                "shape_area": 3062881.45,
-                "shape_leng": 12760.617
             }
         },
         {
             "type": "Feature",
+            "properties": {
+                "id": "tenleytown",
+                "prop_is_only_walking": "true",
+                "layer": "tenleytown-walkshed",
+                "path": "/Users/andrewdefrank/Desktop/class-3-project/data/tenleytown-walkshed.geojson",
+                "shape_area": 0.0,
+                "shape_area1": 0.0,
+                "shape_area2": 3161853.879,
+                "shape_leng": null,
+                "shape_leng1": 14108.928
+            },
             "geometry": {
                 "type": "MultiPolygon",
                 "coordinates": [
@@ -8971,18 +8995,21 @@
                         ]
                     ]
                 ]
-            },
-            "id": 2,
-            "properties": {
-                "station_code": "2",
-                "station_name": "Tenleytown",
-                "layer": "tenleytown-walkshed",
-                "shape_area": 3161853.879,
-                "shape_leng": 14108.928
             }
         },
         {
             "type": "Feature",
+            "properties": {
+                "id": "vanness",
+                "prop_is_only_walking": "true",
+                "layer": "vanness-walkshed",
+                "path": "/Users/andrewdefrank/Desktop/class-3-project/data/vanness-walkshed.geojson",
+                "shape_area": 0.0,
+                "shape_area1": 0.0,
+                "shape_area2": 2072664.331,
+                "shape_leng": null,
+                "shape_leng1": 10608.808
+            },
             "geometry": {
                 "type": "MultiPolygon",
                 "coordinates": [
@@ -11183,18 +11210,21 @@
                         ]
                     ]
                 ]
-            },
-            "id": 3,
-            "properties": {
-                "station_code": "3",
-                "station_name": "Van Ness-UDC",
-                "layer": "vanness-walkshed",
-                "shape_area": 2072664.331,
-                "shape_leng": 10608.808
             }
         },
         {
             "type": "Feature",
+            "properties": {
+                "id": "woodley",
+                "prop_is_only_walking": "true",
+                "layer": "woodley-walkshed",
+                "path": "/Users/andrewdefrank/Desktop/class-3-project/data/woodley-walkshed.geojson",
+                "shape_area": 0.0,
+                "shape_area1": 0.0,
+                "shape_area2": 1921029.628,
+                "shape_leng": null,
+                "shape_leng1": 11075.027
+            },
             "geometry": {
                 "type": "MultiPolygon",
                 "coordinates": [
@@ -13639,14 +13669,6 @@
                         ]
                     ]
                 ]
-            },
-            "id": 5,
-            "properties": {
-                "station_code": "5",
-                "station_name": "Woodley Park-Zoo",
-                "layer": "woodley-walkshed",
-                "shape_area": 1921029.628,
-                "shape_leng": 11075.027
             }
         }
     ]
