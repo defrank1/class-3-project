@@ -1,7 +1,7 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiZGVmcmFuazEiLCJhIjoiY2x1bHZ0OWJyMHlhdjJrcDFsZzlwc3ZxMSJ9.XD1OM3LMVn2qoX9QMqR5Vg'; // access token
 
 const bounds = [ //constraint the map to just Rock Creek West area
-    [-77.17479, 38.91502], [-77.00285, 38.97631]
+[-77.16192, 38.88541], [-77.01347, 38.98450]
 ];
 
 // instantiate the map using a bounding box instead of center point and zoom level
@@ -13,7 +13,6 @@ const map = new mapboxgl.Map({
     center: [-77.06849, 38.94300], // starting position
     maxBounds: bounds // Set the map's geographical boundaries to the bounds defined above 
 });
-
 
 // when the map is finished it's initial load, add sources and layers.
 map.on('load', function () {
@@ -396,4 +395,6 @@ map.on('load', function () {
 
     })
 
+    // disable map zoom when using scroll
+    map.scrollZoom.disable();
 })
