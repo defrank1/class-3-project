@@ -342,13 +342,9 @@ map.on('load', function () {
     // loop over the stationData array to make a marker for each record
     stationData.forEach(function (stationRecord) {
 
-        // create a popup to attach to the marker
-        const popup = new mapboxgl.Popup({
-            offset: 24,
-            anchor: 'bottom'
-        }).setText(
-            `${stationRecord.station_name} is a WMATA metro station on the ${stationRecord.station_line} Line`
-        );
+
+
+//create a marker
         const el = document.createElement('div');
         el.className = 'single-station';
         if (stationRecord.transfer_station === true) {
@@ -358,7 +354,6 @@ map.on('load', function () {
         // create a marker, set the coordinates, add the popup, add it to the map
         new mapboxgl.Marker(el)
             .setLngLat([stationRecord.longitude, stationRecord.latitude])
-            .setPopup(popup)
             .addTo(map);
     })
 
