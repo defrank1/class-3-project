@@ -49,7 +49,7 @@ map.on('load', function () {
         source: 'resi-zones-merged-walkshed',
         filter: ['==', 'resi_code', '2'], //Filter features with layer property equal to 'low-density-residential' so you load each one at a time (and give eaceh a different shade/color)...
         paint: {
-            'fill-color': '#a1dab4',
+            'fill-color': '#fed98e',
             'fill-opacity': [
                 'case',
                 ['boolean', ['feature-state', 'hover'], false],
