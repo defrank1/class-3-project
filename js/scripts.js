@@ -249,6 +249,8 @@ map.on('load', function () {
     setupHoverInteraction('cleveland-walkshed-layer');
     setupHoverInteraction('woodley-walkshed-layer');
 
+    // CLICK ON MAP FEATURES AND SHOW PERCENT OF LOW DENSITY
+
     // Define a custom function to handle click events on a map layer
     function setupClickHandler(layerName) {
         map.on('click', layerName, (e) => {
@@ -263,6 +265,8 @@ map.on('load', function () {
             }
         });
     }
+
+
     // Call setupClickHandler for each layer you want to attach the click handler to
     setupClickHandler('friendship-walkshed-layer');
     setupClickHandler('tenleytown-walkshed-layer');
@@ -270,48 +274,123 @@ map.on('load', function () {
     setupClickHandler('cleveland-walkshed-layer');
     setupClickHandler('woodley-walkshed-layer');
 
-    function setupLayerZoom(layerName, coordinates) {
+    // Define a custom function to handle click events on a map layer
+    function setupClickHandler(layerName) {
         map.on('click', layerName, (e) => {
+            // Check if there are features from this layer at the clicked location
             if (e.features.length > 0) {
+                // Get the station_name property from the clicked feature
                 var station_name = e.features[0].properties.station_name;
-                if (coordinates) {
-                    map.fitBounds(coordinates);
-                }
+                // Get the low_density_percent property from the clicked feature
+                var low_density_percent = e.features[0].properties.low_density_percent;
+                // Update the sidebar content with the clicked station name
+                $('#percent-callout').text(`${low_density_percent} of the residential land within a 15-minute walk of the ${station_name} metro station is zoned for low density!`);
             }
         });
     }
 
-    setupLayerZoom('friendship-walkshed-layer', [[-77.10103, 38.95039], [-77.07451, 38.96737]])
-    setupLayerZoom('tenleytown-walkshed-layer', [[-77.09763, 38.93428], [-77.06189, 38.96172]])
-    setupLayerZoom('vanness-walkshed-layer', [[-77.07883, 38.93144], [-77.05159, 38.95414]])
-    setupLayerZoom('cleveland-walkshed-layer', [[-77.07161, 38.92349], [-77.04557, 38.94429]])
-    setupLayerZoom('woodley-walkshed-layer', [[-77.07077, 38.91560], [-77.03774, 38.93559]])
+    // CLICK ON BUTTONS AND SHOW PERCENT OF LOW DENSITY
 
-    // listen for a click on a specific button and use fitBounds to change the map's camera view.
-    $('#friendship-button').on('click', function () {
-        map.fitBounds([[-77.10103, 38.95039], [-77.07451, 38.96737]])
-    })
+    // Define a function to handle button clicks and update sidebar content
+    function setupButtonClickHandler(stationName,) {
+        $(`#${stationName}-button`).on('click', function () {
+            // Retrieve station details and low density percentage
+            var stationData = findStationData(stationName);
 
-    $('#tenleytown-button').on('click', function () {
-        map.fitBounds([[-77.09763, 38.93428], [-77.06189, 38.96172]])
-    })
+            if (stationData) {
+                var station_name = stationData.station_name;
+                var low_density_percent = stationData.low_density_percent;
 
-    $('#vanness-button').on('click', function () {
-        map.fitBounds([[-77.07883, 38.93144], [-77.05159, 38.95414]])
-    })
-
-    $('#cleveland-button').on('click', function () {
-        map.fitBounds([[-77.07161, 38.92349], [-77.04557, 38.94429]])
-    })
-
-    $('#woodley-button').on('click', function () {
-        map.fitBounds([[-77.07077, 38.91560], [-77.03774, 38.93559]])
-    })
+                // Update the sidebar content with the clicked station name and percentage
+                updatePercentCallout(station_name, low_density_percent);
+            }
+        });
+    }
 
     //button to take you back to full-screen "take you home"
-    $('#take-home').on('click', function () {
-        map.fitBounds([[-77.10972, 38.90469], [-77.03636, 38.97227]])
-    })
+    $('#take-home-button').on('click', function () {
+        map.fitBounds([[-77.16192, 38.88541], [-77.01347, 38.98450]])
+
+        // Reset the sidebar content to a default message or state
+        $('#percent-callout').text('74% of the residential land within a 15-minute walk of Red Line metro stations in Rock Creek West is zoned for low density!');
+    });
+
+    // Function to find station data (simulating data retrieval)
+    function findStationData(stationName) {
+        // This function should simulate fetching station data from your data source
+        var stationData = {
+            "friendship": {
+                "station_name": "Friendship Heights",
+                "low_density_percent": "77%"
+            },
+            "tenleytown": {
+                "station_name": "Tenleytown",
+                "low_density_percent": "87%"
+            },
+            "vanness": {
+                "station_name": "Van Ness-UD",
+                "low_density_percent": "72%"
+            },
+            "cleveland": {
+                "station_name": "Cleveland Park",
+                "low_density_percent": "67%"
+            },
+            "woodley": {
+                "station_name": "Woodley Park",
+                "low_density_percent": "44%"
+            },
+            "take-home": {
+                "station_name": "Red Line stations in Rock Creek West",
+                "low_density_percent": "74%"
+            }
+        };
+
+        // Return station data for the specified stationName
+        return stationData[stationName];
+    }
+
+    // Function to update the sidebar content with station details
+    function updatePercentCallout(stationName, lowDensityPercent) {
+        $('#percent-callout').text(`${lowDensityPercent} of the residential land within a 15-minute walk of the ${stationName} metro station is zoned for low density!`);
+    }
+
+    //CLICK ON BUTTONS AND ZOOM, PAN, ROTATE AROUND STATION
+
+    // Define a function to handle button clicks and update map camera settings
+    function setupZoomButtonClickHandler(stationName, center, pitch, bearing, zoom) {
+        $(`#${stationName}-button`).on('click', function () {
+            map.fitBounds(bounds);
+
+            // Set map pitch and bearing (rotation)
+            map.easeTo({
+                center: center,
+                pitch: pitch,
+                bearing: bearing,
+                zoom: zoom,
+                duration: 2000, // Adjust duration as needed
+                easing: function (t) {
+                    return t;
+                }
+            });
+        });
+    }
+
+    // Call setupButtonClickHandler for each metro station button
+    setupZoomButtonClickHandler('friendship', [-77.08506, 38.95947], 45, 0, 15.2);
+    setupZoomButtonClickHandler('tenleytown', [-77.07923, 38.94806], 45, 0, 15.2);
+    setupZoomButtonClickHandler('vanness', [-77.06351, 38.94417], 45, 0, 15.2);
+    setupZoomButtonClickHandler('cleveland', [-77.05803, 38.93474], 45, 0, 15.2);
+    setupZoomButtonClickHandler('woodley', [-77.05237, 38.92502], 45, 0, 15.2);
+
+    // Call setupButtonClickHandler for each metro station button
+    setupButtonClickHandler('friendship', '77%');
+    setupButtonClickHandler('tenleytown', '87%');
+    setupButtonClickHandler('vanness', '72%');
+    setupButtonClickHandler('cleveland', '67%');
+    setupButtonClickHandler('woodley', '44%');
+    setupButtonClickHandler('take-home', '74%');
+
+
 
     /*ALL OF THESE INSTRUCTIONS ARE ABOUT TOGGLING, DO NOT DELETE, APPLY THEM TO EACH STATION BUTTON LATER
 
@@ -392,4 +471,24 @@ map.on('load', function () {
 
     // disable map zoom when using scroll
     map.scrollZoom.disable();
+
+    const searchJS = document.getElementById('search-js');
+    searchJS.onload = function () {
+        // Create a new instance of MapboxSearchBox
+        const searchBox = new MapboxSearchBox();
+
+        // Set the access token and options for the search box
+        searchBox.accessToken = 'pk.eyJ1IjoiZGVmcmFuazEiLCJhIjoiY2x1bHZ0OWJyMHlhdjJrcDFsZzlwc3ZxMSJ9.XD1OM3LMVn2qoX9QMqR5Vg';
+        searchBox.options = {
+            types: 'address,poi',
+            proximity: [-77.06356, 38.94409]
+        };
+
+        // Enable marker display on the map
+        searchBox.marker = true;
+        searchBox.mapboxgl = mapboxgl;
+
+        // Add the search box to the map as a control
+        map.addControl(searchBox);
+    };
 })

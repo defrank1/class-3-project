@@ -5,32 +5,10 @@
     <meta charset="utf-8">
     <title>TOO DC</title> <!--this is the title in the browser tab bar-->
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
-    <link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet"> <!-- Mapbox GL JS -->
+    <link href="https://api.mapbox.com/search-js/v1.0.0-beta.21/web.css" rel="stylesheet"> <!-- Search JS CSS -->
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script> <!--Include mapBox GL JS here-->
     <link href="css/styles.css" rel="stylesheet"> <!--link to CSS-->
-
-    <style>
-        /*not using these NAV styles as I have no NAV right now
-
-        nav {
-            padding: 1rem;
-            border-bottom: 1px solid #000;
-            display: flex;
-        }
-
-        .nav-links {
-            flex-grow: 1;
-            justify-content: end;
-            display: flex;
-        }
-
-        .nav-link {
-            display: inline-block;
-            font-size: .9rem;
-        }
-
-        */
-    </style>
 
 </head>
 
@@ -40,9 +18,6 @@
         <div class="title">
             Transit-Oriented Opportunity in Washington, DC <!--this is the title in the sidebar-->
         </div>
-        <div id="percent-callout">
-            <!--Click a station on the map, the station_name from the geojson data will be displayed here.-->
-        </div>
         <div id="call-to-action"> <!--this is the paragraph/body with a call to action in the sidebar-->
             <p>This is a map of Rock Creek West, one of ten planning areas in Washington, DC. The Washington metro's Red
                 Line
@@ -51,8 +26,6 @@
             <p> <b>Click on a metro station button below, or the walkshed on the map directly, to zoom toward and
                     inspect what is accsesible a 15-minute
                     walk of the station.</b></p>
-            <p><i>Tip: Use control on your keyboard, or multi-finger touch on your mobile device, to make the map 3D and
-                    reveal building shapes and sizes when zoomed in!</i></p>
             </p>
         </div>
         <hr />
@@ -73,17 +46,24 @@
         <!--This button toggles the visibility of the station boundary line and fill layers using setLayoutProperty()-->
         <div class="button-area"> </div>
 
-        <button class="blue-button" id="take-home">Take Me Home</button>
+        <button class="blue-button" id="take-home-button">Zoom Out</button>
     </div>
 
     <!-- map container div -->
     <div id="map"></div>
-    <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+    <div id="search-container">
+        <input type="text" id="search-input" placeholder="Search for a location" />
+    </div>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script> <!-- Load Mapbox GL JS -->
+    <script id="search-js" defer src="https://api.mapbox.com/search-js/v1.0.0-beta.21/web.js"></script>
+    <!-- Load Mapbox Search JS -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"
         integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 
+    <!-- legend -->
     <div id="legend-container">
-        <h2><u><a href="https://planning.dc.gov/sites/default/files/dc/sites/op/2021CompPlanLandUse.pdf" target="_blank">Land Uses</a></u></h2>
+        <h2><u><a href="https://planning.dc.gov/sites/default/files/dc/sites/op/2021CompPlanLandUse.pdf"
+                    target="_blank">Land Uses</a></u></h2>
         <div class="legend-item">
             <div class="legend-color" style="background-color: #ffffcc;"></div>
             <div class="legend-label">Low Density:
@@ -102,14 +82,23 @@
                 <div class="legend-description">Mid-rise apartments</div>
             </div>
         </div>
-    <div class="legend-item">
-        <div class="legend-color" style="background-color: #225ea8;"></div>
-        <div class="legend-label">High Density:
-            <div class="legend-description">High-rise apartments</div>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: #225ea8;"></div>
+            <div class="legend-label">High Density:
+                <div class="legend-description">High-rise apartments</div>
+            </div>
         </div>
+        <div class="legend-note"><i>Note: Defines neighborhoods generally, but not exclusively.</i></div>
     </div>
-    <div class="legend-note"><i>Note: Defines neighborhoods generally, but not exclusively.</i></div>
-    </div>
+    <!-- info panel -->
+    <div id="info-panel-container">
+        <h2><u>Info Panel</u></h2>
+        <div class="info-panel-item">
+            <div class="info-panel-body">
+                <div id="percent-callout">
+                    <!--Click a station on the map, the station_name from the geojson data will be displayed here.-->
+                </div>
+        </div>
     </div>
     <script src="js/station-data.js"></script> <!--this is the STATION SCRIPT-->
     <script src="js/line-data.js"></script> <!--this is the LINE SCRIPT-->

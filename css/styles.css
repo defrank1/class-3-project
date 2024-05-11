@@ -7,24 +7,26 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 100%;
+  width: 99%;
   height: 100%;
 }
 
 /* add a floating sidebar in the top left */
 .sidebar {
   position: absolute;
-  width: 25%;
-  height: 80%;
+  width: 300px;
+  height: flex;
   z-index: 10;
   background: #fff;
   padding: 12px;
-  border-radius: 8px;
+  border-radius: 15px;
   margin-top: 15px;
   margin-left: 15px;
   font-family: sans-serif;
   font-size: 15px;
-  overflow: scroll;
+  overflow: auto ;
+  border: 5px solid black;
+
 }
 
 #percent-callout {
@@ -142,9 +144,14 @@
   /* Border style with color */
   background-color: #f9f9f9;
   /* Background color of the legend container */
-  font-family: Arial, sans-serif;
+  font-family: sans-serif;
   /* Font family for legend text */
-  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  border-radius: 15px;
+  border: 5px solid black;
+
   /* Padding inside the legend container */
 }
 
@@ -175,6 +182,46 @@
   font-size: 12px;
 }
 
+#info-panel-container {
+  position: fixed;
+  /* Set the position to fixed to position the legend relative to the viewport */
+  bottom: 40px;
+  /* Distance from the bottom edge of the viewport */
+  left: 20px;
+  /* Distance from the right edge of the viewport */
+  border: 5px solid black;
+  /* Border style with color */
+  background-color: #f9f9f9;
+  /* Background color of the legend container */
+  font-family: sans-serif;
+  /* Font family for legend text */
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  border-radius: 15px;
+  width: 300px;
+  height: 200px;
+  background: #ffffff;
+  opacity: 1;
+}
+
+.info-panel-item {
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+}
+
+.info-panel-color {
+  width: 20px;
+  height: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+}
+
+.info-panel-body {
+  font-size: 14px;
+  font-weight: bold;
+}
 
 .single-station {
   background-image: url('../mapbox-markers/single-station.png');
@@ -194,6 +241,22 @@
   height: 36.28px;
   border-radius: 50%;
   cursor: pointer;
+}
+
+#search-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  width: 500;
+}
+
+.mapboxgl-ctrl-geocoder {
+  min-width: 100%;
+  position: relative;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 768px) {
