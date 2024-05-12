@@ -11,7 +11,7 @@
   height: 100%;
 }
 
-/* add a floating sidebar in the top left */
+/* add a floating sidebar in the top left and style each element in it */
 .sidebar {
   position: absolute;
   width: 300px;
@@ -23,23 +23,27 @@
   margin-top: 15px;
   margin-left: 15px;
   font-family: sans-serif;
-  font-size: 15px;
-  overflow: auto ;
+  font-size: 13px;
+  overflow: auto;
   border: 5px solid black;
-
 }
 
-#percent-callout {
-  font-style: italic;
-  font-size: 20px;
-  font-weight: 500px;
-}
-
-/* style the title */
 .title {
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 8px;
+}
+
+#sidebar-body {
+
+  font-family: sans-serif;
+  font-size: 15px;
+}
+
+.call-to-action {
+  font-style: italic;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 /* button style */
@@ -128,31 +132,52 @@
   color: rgba(0, 0, 0, .3);
 }
 
-#map {
-  height: 100%;
-  flex-shrink: 0;
+
+/* add an "info panel" circle in the bottom left and style each element in it */
+#info-panel-container {
+  position: fixed;
+  bottom: 220px;
+  left: 50px;
+  font-family: sans-serif;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  border-radius: 250px;
+  width: 250px;
+  height: 250px;
+  background: #BF0D3E;
 }
 
+#percent-callout-number {
+  margin-top: 40px;
+  font-size: 60px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+}
+
+#percent-callout-text {
+  text-align: center;
+  font-size: 18px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #fff;
+  font-style: italic;
+}
+
+/* add a legend  in the bottom right and style each element in it */
 #legend-container {
   position: fixed;
-  /* Set the position to fixed to position the legend relative to the viewport */
   bottom: 20px;
-  /* Distance from the bottom edge of the viewport */
   right: 20px;
-  /* Distance from the right edge of the viewport */
   border: 1px solid #ccc;
-  /* Border style with color */
   background-color: #f9f9f9;
-  /* Background color of the legend container */
   font-family: sans-serif;
-  /* Font family for legend text */
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
   border-radius: 15px;
-  border: 5px solid black;
-
-  /* Padding inside the legend container */
+  border: 3px solid black;
 }
 
 .legend-item {
@@ -180,47 +205,6 @@
 
 .legend-note {
   font-size: 12px;
-}
-
-#info-panel-container {
-  position: fixed;
-  /* Set the position to fixed to position the legend relative to the viewport */
-  bottom: 40px;
-  /* Distance from the bottom edge of the viewport */
-  left: 20px;
-  /* Distance from the right edge of the viewport */
-  border: 5px solid black;
-  /* Border style with color */
-  background-color: #f9f9f9;
-  /* Background color of the legend container */
-  font-family: sans-serif;
-  /* Font family for legend text */
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 10px;
-  border-radius: 15px;
-  width: 300px;
-  height: 200px;
-  background: #ffffff;
-  opacity: 1;
-}
-
-.info-panel-item {
-  margin-bottom: 2px;
-  display: flex;
-  align-items: center;
-}
-
-.info-panel-color {
-  width: 20px;
-  height: 10px;
-  margin-right: 10px;
-  border: 1px solid #ccc;
-}
-
-.info-panel-body {
-  font-size: 14px;
-  font-weight: bold;
 }
 
 .single-station {

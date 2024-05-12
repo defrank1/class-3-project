@@ -189,7 +189,7 @@ map.on('load', function () {
         source: 'merged-walkshed',
         paint: {
             'line-color': '#003594',
-            'line-width': 1,
+            'line-width': 3,
         },
     })
 
@@ -249,23 +249,6 @@ map.on('load', function () {
     setupHoverInteraction('cleveland-walkshed-layer');
     setupHoverInteraction('woodley-walkshed-layer');
 
-    // CLICK ON MAP FEATURES AND SHOW PERCENT OF LOW DENSITY
-
-    // Define a custom function to handle click events on a map layer
-    function setupClickHandler(layerName) {
-        map.on('click', layerName, (e) => {
-            // Check if there are features from this layer at the clicked location
-            if (e.features.length > 0) {
-                // Get the station_name property from the clicked feature
-                var station_name = e.features[0].properties.station_name;
-                // Get the low_density_percent property from the clicked feature
-                var low_density_percent = e.features[0].properties.low_density_percent;
-                // Update the sidebar content with the clicked station name
-                $('#percent-callout').text(`${low_density_percent} of the residential land within a 15-minute walk of the ${station_name} metro station is zoned for low density!`);
-            }
-        });
-    }
-
 
     // Call setupClickHandler for each layer you want to attach the click handler to
     setupClickHandler('friendship-walkshed-layer');
@@ -283,26 +266,29 @@ map.on('load', function () {
                 var station_name = e.features[0].properties.station_name;
                 // Get the low_density_percent property from the clicked feature
                 var low_density_percent = e.features[0].properties.low_density_percent;
-                // Update the sidebar content with the clicked station name
-                $('#percent-callout').text(`${low_density_percent} of the residential land within a 15-minute walk of the ${station_name} metro station is zoned for low density!`);
+                // Update the info panel content with the clicked station PERCENT
+                $('#percent-callout-number').text(`${low_density_percent} `);
+                // Update the info panel content with the clicked station FOLLOWING TEXT
+                $('#percent-callout-text').text(`of the residential land within a 15-minute walk of the ${station_name} metro station is zoned for low density!`);
             }
         });
     }
 
     // CLICK ON BUTTONS AND SHOW PERCENT OF LOW DENSITY
 
-    // Define a function to handle button clicks and update sidebar content
+    // Define a function to handle button clicks and update info panel content
     function setupButtonClickHandler(stationName,) {
         $(`#${stationName}-button`).on('click', function () {
             // Retrieve station details and low density percentage
             var stationData = findStationData(stationName);
-
             if (stationData) {
                 var station_name = stationData.station_name;
                 var low_density_percent = stationData.low_density_percent;
 
-                // Update the sidebar content with the clicked station name and percentage
-                updatePercentCallout(station_name, low_density_percent);
+                // Update the info-panel content with the clicked station name and percentage
+                updatePercentNumberCallout(low_density_percent);
+                updatePercentTextCallout(station_name);
+
             }
         });
     }
@@ -310,9 +296,6 @@ map.on('load', function () {
     //button to take you back to full-screen "take you home"
     $('#take-home-button').on('click', function () {
         map.fitBounds([[-77.16192, 38.88541], [-77.01347, 38.98450]])
-
-        // Reset the sidebar content to a default message or state
-        $('#percent-callout').text('74% of the residential land within a 15-minute walk of Red Line metro stations in Rock Creek West is zoned for low density!');
     });
 
     // Function to find station data (simulating data retrieval)
@@ -347,11 +330,15 @@ map.on('load', function () {
 
         // Return station data for the specified stationName
         return stationData[stationName];
+        
     }
 
-    // Function to update the sidebar content with station details
-    function updatePercentCallout(stationName, lowDensityPercent) {
-        $('#percent-callout').text(`${lowDensityPercent} of the residential land within a 15-minute walk of the ${stationName} metro station is zoned for low density!`);
+    // Function to update the info panel content with station details
+    function updatePercentNumberCallout(lowDensityPercent) {
+        $('#percent-callout-number').text(`${lowDensityPercent}`);
+    }
+    function updatePercentTextCallout(stationName, lowDensityPercent) {
+        $('#percent-callout-text').text(`of the residential land within a 15-minute walk of the ${stationName} metro station is zoned for low density!`);
     }
 
     //CLICK ON BUTTONS AND ZOOM, PAN, ROTATE AROUND STATION

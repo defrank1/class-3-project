@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>TOO DC</title> <!--this is the title in the browser tab bar-->
+    <title>TOO RCW</title> <!--this is the title in the browser tab bar-->
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet"> <!-- Mapbox GL JS -->
     <link href="https://api.mapbox.com/search-js/v1.0.0-beta.21/web.css" rel="stylesheet"> <!-- Search JS CSS -->
@@ -16,19 +16,28 @@
     <!-- floating sidebar -->
     <div class="sidebar">
         <div class="title">
-            Transit-Oriented Opportunity in Washington, DC <!--this is the title in the sidebar-->
+            Transit-Oriented Opportunity in Rock Creek West <!--this is the title in the sidebar-->
         </div>
-        <div id="call-to-action"> <!--this is the paragraph/body with a call to action in the sidebar-->
-            <p>This is a map of Rock Creek West, one of ten planning areas in Washington, DC. The Washington metro's Red
-                Line
-                runs through Rock Creek West. A 15-minute walking radius from each station in Rock Creek West is shown.
+        <div id="sidebar-body"> <!--this is the paragraph/body with a call to action in the sidebar-->
+            <p>This is a map of Rock Creek West, the wealthiest of Washington, DC's ten planning areas. Five stations on
+                the
+                Washington metro's Red Line are within Rock Creek West.
 
-            <p> <b>Click on a metro station button below, or the walkshed on the map directly, to zoom toward and
-                    inspect what is accsesible a 15-minute
-                    walk of the station.</b></p>
-            </p>
+            <p>You can see the 15-minute walking distance from each station, and the intended future land use for each
+                area, according to the District's <a
+                    href="https://planning.dc.gov/sites/default/files/dc/sites/op/2021CompPlanLandUse.pdf"
+                    target="_blank">Comprehensive Plan</a>.</p>
+
+            <div class="call-to-action">
+                Click on any button below to zoom on a station and learn more about its residential land use.
+
+            </div>
+
+            <p>
+
         </div>
         <hr />
+        <p></p>
         <!-- the section with buttons to control the map view -->
         <div class="button-area"><!--These buttons use flyTo() and fitBounds() to control the map view.--></div>
         <button class="red-button" id="friendship-button">Friendship Heights</button>
@@ -62,8 +71,7 @@
 
     <!-- legend -->
     <div id="legend-container">
-        <h2><u><a href="https://planning.dc.gov/sites/default/files/dc/sites/op/2021CompPlanLandUse.pdf"
-                    target="_blank">Land Uses</a></u></h2>
+        <h2><u></u></h2>
         <div class="legend-item">
             <div class="legend-color" style="background-color: #ffffcc;"></div>
             <div class="legend-label">Low Density:
@@ -88,17 +96,15 @@
                 <div class="legend-description">High-rise apartments</div>
             </div>
         </div>
-        <div class="legend-note"><i>Note: Defines neighborhoods generally, but not exclusively.</i></div>
+        <div class="legend-note"><i>Note: Defines areas generally, but not exclusively.</i></div>
+
     </div>
     <!-- info panel -->
     <div id="info-panel-container">
-        <h2><u>Info Panel</u></h2>
-        <div class="info-panel-item">
-            <div class="info-panel-body">
-                <div id="percent-callout">
-                    <!--Click a station on the map, the station_name from the geojson data will be displayed here.-->
-                </div>
-        </div>
+        <div id="percent-callout-number"></div>
+        <!--Click a station on the map, the low_density_percent from the geojson data will be displayed here.-->
+        <div id="percent-callout-text"></div>
+        <!--Click a station on the map, the station_name from the geojson data will be displayed here.-->
     </div>
     <script src="js/station-data.js"></script> <!--this is the STATION SCRIPT-->
     <script src="js/line-data.js"></script> <!--this is the LINE SCRIPT-->
