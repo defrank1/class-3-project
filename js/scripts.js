@@ -269,7 +269,7 @@ map.on('load', function () {
                 // Update the info panel content with the clicked station PERCENT
                 $('#percent-callout-number').text(`${low_density_percent} `);
                 // Update the info panel content with the clicked station FOLLOWING TEXT
-                $('#percent-callout-text').text(`of the residential land within a 15-minute walk of the ${station_name} metro station is zoned for low density!`);
+                $('#percent-callout-text').text(`of residential land within a 15-minute walk of ${stationName} is intended for low density.`);
             }
         });
     }
@@ -303,27 +303,27 @@ map.on('load', function () {
         // This function should simulate fetching station data from your data source
         var stationData = {
             "friendship": {
-                "station_name": "Friendship Heights",
+                "station_name": "Friendship Heights station",
                 "low_density_percent": "77%"
             },
             "tenleytown": {
-                "station_name": "Tenleytown",
+                "station_name": "Tenleytown-AU station",
                 "low_density_percent": "87%"
             },
             "vanness": {
-                "station_name": "Van Ness-UD",
+                "station_name": "Van Ness-UDC station",
                 "low_density_percent": "72%"
             },
             "cleveland": {
-                "station_name": "Cleveland Park",
+                "station_name": "Cleveland Park station",
                 "low_density_percent": "67%"
             },
             "woodley": {
-                "station_name": "Woodley Park",
+                "station_name": "Woodley Park station",
                 "low_density_percent": "44%"
             },
             "take-home": {
-                "station_name": "Red Line stations in Rock Creek West",
+                "station_name": "the Red Line stations in Rock Creek West",
                 "low_density_percent": "74%"
             }
         };
@@ -338,7 +338,7 @@ map.on('load', function () {
         $('#percent-callout-number').text(`${lowDensityPercent}`);
     }
     function updatePercentTextCallout(stationName, lowDensityPercent) {
-        $('#percent-callout-text').text(`of the residential land within a 15-minute walk of the ${stationName} metro station is zoned for low density!`);
+        $('#percent-callout-text').text(`of residential land within a 15-minute walk of ${stationName} is intended for low density.`);
     }
 
     //CLICK ON BUTTONS AND ZOOM, PAN, ROTATE AROUND STATION
