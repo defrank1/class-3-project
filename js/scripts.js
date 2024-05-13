@@ -262,6 +262,38 @@ map.on('load', function () {
         });
     }
 
+
+
+// Function to handle button hover effect and map layer opacity
+function setupButtonHoverInteraction(buttonId, layerId, featureId) {
+    const button = document.getElementById(buttonId);
+    // Hover over button
+    button.addEventListener('mousemove', () => {
+        map.setFeatureState(
+            { source: 'merged-walkshed', id: featureId},
+            { hover: true }
+        );
+    });
+
+    // Mouse leaves button
+    button.addEventListener('mouseout', () => {
+        map.setFeatureState(
+            { source: 'merged-walkshed', id: featureId},
+            { hover: false }
+        );
+        
+    });
+
+// Call setupButtonMapInteraction for each button and corresponding map layer
+setupButtonHoverInteraction('friendship-button', 'friendship-walkshed-layer', 1);
+setupButtonHoverInteraction('tenleytown-button', 'tenleytown-walkshed-layer', 2);
+setupButtonHoverInteraction('vanness-button', 'vanness-walkshed-layer', 3);
+setupButtonHoverInteraction('cleveland-button', 'cleveland-walkshed-layer', 4);
+setupButtonHoverInteraction('woodley-button', 'woodley-walkshed-layer', 5);
+setupButtonHoverInteraction('take-home-button', 'merged-walkshed-line');
+
+
+
     // Call setupHoverInteraction for each layer you want to apply the hover interaction to
     setupHoverInteraction('friendship-walkshed-layer');
     setupHoverInteraction('tenleytown-walkshed-layer');
