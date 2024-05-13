@@ -1,8 +1,8 @@
- // access token
+// access token
 
 const ACCESS_TOKEN = 'pk.eyJ1IjoiZGVmcmFuazEiLCJhIjoiY2x1bHZ0OWJyMHlhdjJrcDFsZzlwc3ZxMSJ9.XD1OM3LMVn2qoX9QMqR5Vg';
 
-    mapboxgl.accessToken = ACCESS_TOKEN; 
+mapboxgl.accessToken = ACCESS_TOKEN;
 
 const bounds = [ //constraint the map to just Rock Creek West area
     [-77.16192, 38.88541], [-77.01347, 38.98450]
@@ -21,17 +21,17 @@ const map = new mapboxgl.Map({
 //SEARCH BAR 
 
 const searchJS = document.getElementById('search-js');
-    searchJS.onload = function () {
-        const searchBox = new MapboxSearchBox();
-        searchBox.accessToken = ACCESS_TOKEN;
-        searchBox.options = {
-            types: 'address,poi',
-            proximity: [-77.06351, 38.94417]
-        };
-        searchBox.marker = true;
-        searchBox.mapboxgl = mapboxgl;
-        map.addControl(searchBox);
+searchJS.onload = function () {
+    const searchBox = new MapboxSearchBox();
+    searchBox.accessToken = ACCESS_TOKEN;
+    searchBox.options = {
+        types: 'address,poi',
+        proximity: [-77.06351, 38.94417]
     };
+    searchBox.marker = true;
+    searchBox.mapboxgl = mapboxgl;
+    map.addControl(searchBox);
+};
 
 // when the map is finished it's initial load, add sources and layers.
 map.on('load', function () {
@@ -43,7 +43,7 @@ map.on('load', function () {
         generateID: true //This adds an ID to each feature
     });
 
-   //add the residential density layers
+    //add the residential density layers
 
     map.addLayer({
         id: 'low-density-residential',
@@ -78,7 +78,7 @@ map.on('load', function () {
         }
 
     });
-    
+
     map.addLayer({
         id: 'medium-density-residential',
         type: 'fill',
@@ -261,34 +261,34 @@ map.on('load', function () {
         });
     }
 
-// Function to handle button hover effect and map layer opacity
-function setupButtonHoverInteraction(buttonId, layerId, featureId) {
-    const button = document.getElementById(buttonId);
-    // Hover over button
-    button.addEventListener('mousemove', () => {
-        map.setFeatureState(
-            { source: 'merged-walkshed', id: featureId},
-            { hover: true }
-        );
-    });
+    // Function to handle button hover effect and map layer opacity
+    function setupButtonHoverInteraction(buttonId, layerId, featureId) {
+        const button = document.getElementById(buttonId);
+        // Hover over button
+        button.addEventListener('mousemove', () => {
+            map.setFeatureState(
+                { source: 'merged-walkshed', id: featureId },
+                { hover: true }
+            );
+        });
 
-    // Mouse leaves button
-    button.addEventListener('mouseout', () => {
-        map.setFeatureState(
-            { source: 'merged-walkshed', id: featureId},
-            { hover: false }
-        );
-        
-    });
-}
+        // Mouse leaves button
+        button.addEventListener('mouseout', () => {
+            map.setFeatureState(
+                { source: 'merged-walkshed', id: featureId },
+                { hover: false }
+            );
 
-// Call setupButtonMapInteraction for each button and corresponding map layer
-setupButtonHoverInteraction('friendship-button', 'friendship-walkshed-layer', 1);
-setupButtonHoverInteraction('tenleytown-button', 'tenleytown-walkshed-layer', 2);
-setupButtonHoverInteraction('vanness-button', 'vanness-walkshed-layer', 3);
-setupButtonHoverInteraction('cleveland-button', 'cleveland-walkshed-layer', 4);
-setupButtonHoverInteraction('woodley-button', 'woodley-walkshed-layer', 5);
-setupButtonHoverInteraction('take-home-button', 'merged-walkshed-line');
+        });
+    }
+
+    // Call setupButtonMapInteraction for each button and corresponding map layer
+    setupButtonHoverInteraction('friendship-button', 'friendship-walkshed-layer', 1);
+    setupButtonHoverInteraction('tenleytown-button', 'tenleytown-walkshed-layer', 2);
+    setupButtonHoverInteraction('vanness-button', 'vanness-walkshed-layer', 3);
+    setupButtonHoverInteraction('cleveland-button', 'cleveland-walkshed-layer', 4);
+    setupButtonHoverInteraction('woodley-button', 'woodley-walkshed-layer', 5);
+    setupButtonHoverInteraction('take-home-button', 'merged-walkshed-line');
 
 
 
@@ -380,7 +380,7 @@ setupButtonHoverInteraction('take-home-button', 'merged-walkshed-line');
 
         // Return station data for the specified stationName
         return stationData[stationName];
-        
+
     }
 
     // Function to update the info panel content with station details
@@ -462,7 +462,7 @@ setupButtonHoverInteraction('take-home-button', 'merged-walkshed-line');
             },
             paint: {
                 'line-color': lineRecord.properties.color,
-                'line-width':  {
+                'line-width': {
                     stops: [[15.2, 15], [15.3, 25]]
                 }
             }
@@ -471,5 +471,5 @@ setupButtonHoverInteraction('take-home-button', 'merged-walkshed-line');
 
     // disable map zoom when using scroll
     map.scrollZoom.disable();
-  
+
 })
