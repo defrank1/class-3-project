@@ -209,7 +209,6 @@
 
 .single-station {
   background-image: url('../img/single-station.png');
-  /*NOTE: not sure if i need this here, in HTML, or both*/
   background-size: cover;
   width: 25px;
   height: 25px;
@@ -219,7 +218,6 @@
 
 .transfer-station {
   background-image: url('../img/transfer-station.png');
-  /*NOTE: not sure if i need this here, in HTML, or both*/
   background-size: cover;
   width: 40px;
   height: 40px;
