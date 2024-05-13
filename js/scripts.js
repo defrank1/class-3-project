@@ -78,8 +78,7 @@ map.on('load', function () {
         }
 
     });
-
-
+    
     map.addLayer({
         id: 'medium-density-residential',
         type: 'fill',
@@ -261,8 +260,6 @@ map.on('load', function () {
             }
         });
     }
-
-
 
 // Function to handle button hover effect and map layer opacity
 function setupButtonHoverInteraction(buttonId, layerId, featureId) {
@@ -468,20 +465,8 @@ setupButtonHoverInteraction('take-home-button', 'merged-walkshed-line');
                 'line-width':  {
                     stops: [[15.2, 15], [15.3, 25]]
                 }
-
-
-
-                /* try this to get different line widths per zoom level       
-                {
-                    stops: [[5, 3], [100, 50]]
-                }
-
-                          */
             }
         })
-
-
-
     })
 
     // disable map zoom when using scroll
