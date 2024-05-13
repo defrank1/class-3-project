@@ -319,7 +319,7 @@ map.on('load', function () {
                 "low_density_percent": "67%"
             },
             "woodley": {
-                "station_name": "Woodley Park station",
+                "station_name": "Woodley Park- station",
                 "low_density_percent": "44%"
             },
             "take-home": {
