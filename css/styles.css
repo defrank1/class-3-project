@@ -275,20 +275,20 @@
   #info-panel-container {
   position: fixed;
   bottom: 100px;
-  left: 3%;
+  left: 5%;
   font-family: sans-serif;
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
   border-radius: 250px;
-  width: 75px;
-  height: 75px;
+  width: 100px;
+  height: 100px;
   background: #BF0D3E;
 }
 
 #percent-callout-number {
-  font-size: 25px;
-  margin-top: 20px;
+  font-size: 20px;
+  margin-top: 15px;
   font-weight: bold;
   color: #fff;
   text-align: center;
@@ -297,7 +297,7 @@
 
 #percent-callout-text {
   text-align: center;
-  font-size: 11px;
+  font-size: 10px;
   padding-left: 10px;
   padding-right: 10px;
   color: #fff;
@@ -318,6 +318,7 @@
   border: 3px solid black;
   overflow: auto;
   max-width: 25%;
+  max-height: 25%;
 }
 
 .legend-item {
