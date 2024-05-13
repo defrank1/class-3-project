@@ -34,8 +34,8 @@ map.on('load', function () {
             'fill-opacity': [
                 'case',
                 ['boolean', ['feature-state', 'hover'], false],
-                0.6,  // opacity when hover is true
-                0.6, // opacity when hover is false
+                1,  // opacity when hover is true
+                0.7, // opacity when hover is false
             ]
         }
 
@@ -52,8 +52,8 @@ map.on('load', function () {
             'fill-opacity': [
                 'case',
                 ['boolean', ['feature-state', 'hover'], false],
-                0.6,  // opacity when hover is true
-                0.6, // opacity when hover is false
+                1,  // opacity when hover is true
+                0.7, // opacity when hover is false
             ]
         }
 
@@ -70,8 +70,8 @@ map.on('load', function () {
             'fill-opacity': [
                 'case',
                 ['boolean', ['feature-state', 'hover'], false],
-                0.6,  // opacity when hover is true
-                0.6, // opacity when hover is false
+                1,  // opacity when hover is true
+                0.7, // opacity when hover is false
             ]
         }
 
@@ -87,8 +87,8 @@ map.on('load', function () {
             'fill-opacity': [
                 'case',
                 ['boolean', ['feature-state', 'hover'], false],
-                0.6,  // opacity when hover is true
-                0.6, // opacity when hover is false
+                1,  // opacity when hover is true
+                0.7, // opacity when hover is false
             ]
         }
 
@@ -113,7 +113,7 @@ map.on('load', function () {
             'fill-opacity': [
                 'case',
                 ['boolean', ['feature-state', 'hover'], false],
-                0.0,  // opacity when hover is true
+                0.1,  // opacity when hover is true
                 0.0 // opacity when hover is false
             ]
         }
@@ -129,7 +129,7 @@ map.on('load', function () {
             'fill-opacity': [
                 'case',
                 ['boolean', ['feature-state', 'hover'], false],
-                0.0,  // opacity when hover is true
+                0.1,  // opacity when hover is true
                 0.0 // opacity when hover is false
             ]
         }
@@ -145,7 +145,7 @@ map.on('load', function () {
             'fill-opacity': [
                 'case',
                 ['boolean', ['feature-state', 'hover'], false],
-                0.0,  // opacity when hover is true
+                0.1,  // opacity when hover is true
                 0.0 // opacity when hover is false
             ]
         }
@@ -161,7 +161,7 @@ map.on('load', function () {
             'fill-opacity': [
                 'case',
                 ['boolean', ['feature-state', 'hover'], false],
-                0.0,  // opacity when hover is true
+                0.1,  // opacity when hover is true
                 0.0 // opacity when hover is false
             ]
         }
@@ -177,7 +177,7 @@ map.on('load', function () {
             'fill-opacity': [
                 'case',
                 ['boolean', ['feature-state', 'hover'], false],
-                0.0,  // opacity when hover is true
+                0.1,  // opacity when hover is true
                 0.0 // opacity when hover is false
             ]
         }
