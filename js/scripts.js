@@ -26,7 +26,7 @@ const searchJS = document.getElementById('search-js');
         searchBox.accessToken = ACCESS_TOKEN;
         searchBox.options = {
             types: 'address,poi',
-            proximity: [-77.06351, 38.94417],
+            proximity: [-77.06351, 38.94417]
         };
         searchBox.marker = true;
         searchBox.mapboxgl = mapboxgl;
@@ -42,6 +42,8 @@ map.on('load', function () {
         data: 'data/walkshed-resi-zones/resi-zones-merged-walkshed.geojson',
         generateID: true //This adds an ID to each feature
     });
+
+   //add the residential density layers
 
     map.addLayer({
         id: 'low-density-residential',
@@ -59,7 +61,6 @@ map.on('load', function () {
         }
 
     });
-
 
     map.addLayer({
         id: 'moderate-density-residential',
@@ -113,14 +114,14 @@ map.on('load', function () {
 
     });
 
-
-
     // add a geojson source for the walksheds
     map.addSource('merged-walkshed', {
         type: 'geojson',
         data: 'data/walksheds/merged-walkshed.geojson',
         generateID: true // This adds an id to each feature
     });
+
+    //add the walkshed layers
 
     map.addLayer({
         id: 'friendship-walkshed-layer',
@@ -213,27 +214,27 @@ map.on('load', function () {
     })
 
     // this is a variable to store the id of the feature that is currently being hovered.
-    let hoveredPolygonId = null
+    let hoveredWalkshedId = null
 
     // Define a custom function to handle hover events on a map layer
     function setupHoverInteraction(layerName) {
         map.on('mousemove', layerName, (e) => {
             // don't do anything if there are no features from this layer under the mouse pointer
             if (e.features.length > 0) {
-                // if hoveredPolygonId already has an id in it, set the featureState for that id to hover: false
-                if (hoveredPolygonId !== null) {
+                // if hoveredWalkshedId already has an id in it, set the featureState for that id to hover: false
+                if (hoveredWalkshedId !== null) {
                     map.setFeatureState(
-                        { source: 'merged-walkshed', id: hoveredPolygonId },
+                        { source: 'merged-walkshed', id: hoveredWalkshedId },
                         { hover: false }
                     );
                 }
 
-                // set hoveredPolygonId to the id of the feature currently being hovered
-                hoveredPolygonId = e.features[0].id;
+                // set hoveredWalkshedId to the id of the feature currently being hovered
+                hoveredWalkshedId = e.features[0].id;
 
                 // set the featureState of this feature to hover:true
                 map.setFeatureState(
-                    { source: 'merged-walkshed', id: hoveredPolygonId },
+                    { source: 'merged-walkshed', id: hoveredWalkshedId },
                     { hover: true }
                 );
 
@@ -243,15 +244,15 @@ map.on('load', function () {
                 // resets the feature state to the default (nothing is hovered) when the mouse leaves the 'station-boundaries-fill' layer
                 map.on('mouseleave', layerName, () => {
                     // set the featureState of the previous hovered feature to hover:false
-                    if (hoveredPolygonId !== null) {
+                    if (hoveredWalkshedId !== null) {
                         map.setFeatureState(
-                            { source: 'merged-walkshed', id: hoveredPolygonId },
+                            { source: 'merged-walkshed', id: hoveredWalkshedId },
                             { hover: false }
                         );
                     }
 
-                    // clear hoveredPolygonId
-                    hoveredPolygonId = null;
+                    // clear hoveredWalkshedId
+                    hoveredWalkshedId = null;
 
                     // set the cursor back to default
                     map.getCanvas().style.cursor = ''
@@ -260,6 +261,35 @@ map.on('load', function () {
             }
         });
     }
+
+
+
+// Function to handle button hover effect and map layer opacity
+function setupButtonHoverInteraction(buttonId, layerId) {
+    const button = document.getElementById(buttonId);
+
+    // Hover over button
+    button.addEventListener('mousemove', () => {
+        map.setPaintProperty(layerId, 'fill-opacity', 0.1); // Set layer opacity to 1 on hover
+    });
+
+    // Mouse leaves button
+    button.addEventListener('mouseout', () => {
+        map.setPaintProperty(layerId, 'fill-opacity', 0.0); // Set layer opacity back to 0.7 when not hovered
+
+        
+    });
+}
+
+// Call setupButtonMapInteraction for each button and corresponding map layer
+setupButtonHoverInteraction('friendship-button', 'friendship-walkshed-layer');
+setupButtonHoverInteraction('tenleytown-button', 'tenleytown-walkshed-layer');
+setupButtonHoverInteraction('vanness-button', 'vanness-walkshed-layer');
+setupButtonHoverInteraction('cleveland-button', 'cleveland-walkshed-layer');
+setupButtonHoverInteraction('woodley-button', 'woodley-walkshed-layer');
+setupButtonHoverInteraction('take-home-button', 'merged-walkshed-line');
+
+
 
     // Call setupHoverInteraction for each layer you want to apply the hover interaction to
     setupHoverInteraction('friendship-walkshed-layer');

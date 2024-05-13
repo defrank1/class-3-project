@@ -144,7 +144,7 @@
 /* add an "info panel" circle in the bottom left and style each element in it */
 #info-panel-container {
   position: fixed;
-  bottom: 220px;
+  bottom: 150px;
   left: 50px;
   font-family: sans-serif;
   padding-left: 10px;
