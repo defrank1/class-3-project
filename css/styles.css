@@ -290,7 +290,7 @@
 
 #percent-callout-number {
   font-size: 25px;
-  margin-top: 10px;
+  margin-top: 7px;
   font-weight: bold;
   color: #fff;
   text-align: center;
@@ -300,8 +300,10 @@
 #percent-callout-text {
   text-align: center;
   font-size: 11px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-bottom: 7px;
+  overflow: auto;
   color: #fff;
   font-style: italic;
 }
@@ -330,23 +332,35 @@
 }
 
 .legend-color {
-  width: 10px;
+  width: 20px;
   height: 10px;
-  margin-right: 10px;
+  margin-right: 7px;
   border: 1px solid #ccc;
 }
 
 .legend-label {
   font-size: 10px;
   font-weight: bold;
+  line-height: 10px;
 }
 
 .legend-description {
   font-weight: lighter;
   margin-bottom: 3px;
+  line-height: 10px;
 }
 
 .legend-note {
   font-size: 10px;
 }
+
+/* mobile style for search bar*/
+.mapboxgl-ctrl-geocoder {
+  position: relative;
+  top: 10px;
+  max-width: 40%;
+  left: 10px;
+  z-index: 1;
+}
+
 }
