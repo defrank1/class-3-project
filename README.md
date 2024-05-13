@@ -7,3 +7,5 @@ The current version of the live site is here: https://defrank1.github.io/class-3
 Residential land use category data was sourced from DC Open Data: https://opendata.dc.gov/datasets/DCGIS::future-land-use/about and planning areas from: https://opendata.dc.gov/datasets/203c2342b36240949e0ad95d75a5bdca_2/explore?location=38.938220%2C-77.055362%2C13.00. QGIS was used to consolidate land use categories and save as geojson files. 
 
 TravelTime API was used to generate the 15-minute walkshed, and JoshData's wmata-track-locations repository was used to generate station lines: https://github.com/JoshData/wmata-track-locations. Stations themselves were sourced from WMATA's developer tools. The icons were created by yours truly in Adobe Illustrator.
+
+![A screenshot of a web-based map showing residential land use density in the Rock Creek West area of Washington, DC](img/home-screenshot.png)
