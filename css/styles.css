@@ -289,8 +289,8 @@
 }
 
 #percent-callout-number {
-  font-size: 20px;
-  margin-top: 15px;
+  font-size: 25px;
+  margin-top: 10px;
   font-weight: bold;
   color: #fff;
   text-align: center;
@@ -299,9 +299,9 @@
 
 #percent-callout-text {
   text-align: center;
-  font-size: 10px;
-  padding-left: 7px;
-  padding-right: 7px;
+  font-size: 11px;
+  padding-left: 5px;
+  padding-right: 5px;
   color: #fff;
   font-style: italic;
 }
@@ -320,7 +320,7 @@
   border: 3px solid black;
   overflow: auto;
   max-width: 25%;
-  max-height: 25%;
+  height: 150px;
 }
 
 .legend-item {
