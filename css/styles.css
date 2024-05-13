@@ -252,7 +252,7 @@
     /* Adjusted padding */
     margin-top: 10px;
     margin-left: 10px;
-    font-size: 12px;
+    font-size: 11px;
   }
 
   /* Title adjustments */
@@ -263,12 +263,85 @@
   /* Button adjustments */
   .red-button,
   .blue-button {
-    font-size: 10px;
+    font-size: 15px;
     /* Smaller font size for buttons */
     height: 30px;
     /* Reduced button height */
     padding: 6px 6px;
     /* Reduced button padding */
-    font-weight: bold;
   }
+
+/* add an "info panel" circle in the bottom left and style each element in it */
+#info-panel-container {
+  position: fixed;
+  bottom: 100px;
+  left: 50px;
+  font-family: sans-serif;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  border-radius: 250px;
+  width: 150px;
+  height: 150px;
+  background: #BF0D3E;
+}
+
+#percent-callout-number {
+  font-size: 35px;
+  margin-top: 20px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+
+}
+
+#percent-callout-text {
+  text-align: center;
+  font-size: 11px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #fff;
+  font-style: italic;
+}
+
+/* add a legend  in the bottom right and style each element in it */
+#legend-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #f9f9f9;
+  font-family: sans-serif;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-bottom: 8px;
+  border-radius: 15px;
+  border: 3px solid black;
+}
+
+.legend-item {
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+}
+
+.legend-color {
+  width: 10px;
+  height: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+}
+
+.legend-label {
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.legend-description {
+  font-weight: lighter;
+  margin-bottom: 3px;
+}
+
+.legend-note {
+  font-size: 10px;
+}
 }

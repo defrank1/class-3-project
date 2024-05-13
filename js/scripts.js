@@ -427,31 +427,8 @@ setupButtonHoverInteraction('take-home-button', 'merged-walkshed-line');
     setupButtonClickHandler('take-home', '74%');
 
 
-
-    /*ALL OF THESE INSTRUCTIONS ARE ABOUT TOGGLING, DO NOT DELETE, APPLY THEM TO EACH STATION BUTTON LATER
-
-
-    // by default we will set the layers to visible
-    let value = 'visible' 
-
-    // if the layers are already visible, set their visibility to 'none'
-    if (stationVisible === true) {
-        value = 'none'
-    }
-
-    // use setLayoutProperty to apply the visibility (either 'visible' or 'none' depending on the logic above)
-    map.setLayoutProperty('station-boundaries-fill', 'visibility', value)
-    map.setLayoutProperty('station-boundaries-line', 'visibility', value)
-
-    // flip the value in station_Visible to reflect the new state. (if true, it becomes false, if false it becomes true)
-    stationVisible = !stationVisible
-})
-
-*/
     // loop over the stationData array to make a marker for each record
     stationData.forEach(function (stationRecord) {
-
-
 
         //create a marker
         const el = document.createElement('div');
@@ -484,7 +461,11 @@ setupButtonHoverInteraction('take-home-button', 'merged-walkshed-line');
             },
             paint: {
                 'line-color': lineRecord.properties.color,
-                'line-width': 15
+                'line-width':  {
+                    stops: [[15.2, 15], [15.3, 25]]
+                }
+
+
 
                 /* try this to get different line widths per zoom level       
                 {
@@ -501,4 +482,5 @@ setupButtonHoverInteraction('take-home-button', 'merged-walkshed-line');
 
     // disable map zoom when using scroll
     map.scrollZoom.disable();
+  
 })
