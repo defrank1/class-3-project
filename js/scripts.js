@@ -354,7 +354,7 @@ map.on('load', function () {
                 pitch: pitch,
                 bearing: bearing,
                 zoom: zoom,
-                duration: 2000, // Adjust duration as needed
+                duration: 1000, // Adjust duration as needed
                 easing: function (t) {
                     return t;
                 }
@@ -363,11 +363,11 @@ map.on('load', function () {
     }
 
     // Call setupButtonClickHandler for each metro station button
-    setupZoomButtonClickHandler('friendship', [-77.08506, 38.95947], 45, 0, 15.2);
-    setupZoomButtonClickHandler('tenleytown', [-77.07923, 38.94806], 45, 0, 15.2);
-    setupZoomButtonClickHandler('vanness', [-77.06351, 38.94417], 45, 0, 15.2);
-    setupZoomButtonClickHandler('cleveland', [-77.05803, 38.93474], 45, 0, 15.2);
-    setupZoomButtonClickHandler('woodley', [-77.05237, 38.92502], 45, 0, 15.2);
+    setupZoomButtonClickHandler('friendship', [-77.08506, 38.95947], 55, 25, 15.3);
+    setupZoomButtonClickHandler('tenleytown', [-77.07923, 38.94806], 55, -25, 15.3);
+    setupZoomButtonClickHandler('vanness', [-77.06351, 38.94417], 55, -70, 15.3);
+    setupZoomButtonClickHandler('cleveland', [-77.05803, 38.93474], 55, -45, 15.3);
+    setupZoomButtonClickHandler('woodley', [-77.05237, 38.92502], 45, -100, 15.3);
 
     // Call setupButtonClickHandler for each metro station button
     setupButtonClickHandler('friendship', '77%');
@@ -399,12 +399,6 @@ map.on('load', function () {
 })
 
 */
-
-    // list all the layers on the map in the console
-    console.log(
-        map.getStyle().layers
-    )
-
     // loop over the stationData array to make a marker for each record
     stationData.forEach(function (stationRecord) {
 
