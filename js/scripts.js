@@ -1,4 +1,8 @@
-mapboxgl.accessToken = 'pk.eyJ1IjoiZGVmcmFuazEiLCJhIjoiY2x1bHZ0OWJyMHlhdjJrcDFsZzlwc3ZxMSJ9.XD1OM3LMVn2qoX9QMqR5Vg'; // access token
+ // access token
+
+const ACCESS_TOKEN = 'pk.eyJ1IjoiZGVmcmFuazEiLCJhIjoiY2x1bHZ0OWJyMHlhdjJrcDFsZzlwc3ZxMSJ9.XD1OM3LMVn2qoX9QMqR5Vg';
+
+    mapboxgl.accessToken = ACCESS_TOKEN; 
 
 const bounds = [ //constraint the map to just Rock Creek West area
     [-77.16192, 38.88541], [-77.01347, 38.98450]
@@ -13,6 +17,21 @@ const map = new mapboxgl.Map({
     center: [-77.06849, 38.94300], // starting position
     maxBounds: bounds // Set the map's geographical boundaries to the bounds defined above 
 });
+
+//SEARCH BAR 
+
+const searchJS = document.getElementById('search-js');
+    searchJS.onload = function () {
+        const searchBox = new MapboxSearchBox();
+        searchBox.accessToken = ACCESS_TOKEN;
+        searchBox.options = {
+            types: 'address,poi',
+            proximity: [-77.06351, 38.94417],
+        };
+        searchBox.marker = true;
+        searchBox.mapboxgl = mapboxgl;
+        map.addControl(searchBox);
+    };
 
 // when the map is finished it's initial load, add sources and layers.
 map.on('load', function () {
@@ -303,23 +322,23 @@ map.on('load', function () {
         // This function should simulate fetching station data from your data source
         var stationData = {
             "friendship": {
-                "station_name": "Friendship Heights station",
+                "station_name": "the Friendship Heights station",
                 "low_density_percent": "77%"
             },
             "tenleytown": {
-                "station_name": "Tenleytown-AU station",
+                "station_name": "the Tenleytown-AU station",
                 "low_density_percent": "87%"
             },
             "vanness": {
-                "station_name": "Van Ness-UDC station",
+                "station_name": "the Van Ness-UDC station",
                 "low_density_percent": "72%"
             },
             "cleveland": {
-                "station_name": "Cleveland Park station",
+                "station_name": "the Cleveland Park station",
                 "low_density_percent": "67%"
             },
             "woodley": {
-                "station_name": "Woodley Park- station",
+                "station_name": "the Woodley Park station",
                 "low_density_percent": "44%"
             },
             "take-home": {
@@ -452,24 +471,4 @@ map.on('load', function () {
 
     // disable map zoom when using scroll
     map.scrollZoom.disable();
-
-    const searchJS = document.getElementById('search-js');
-    searchJS.onload = function () {
-        // Create a new instance of MapboxSearchBox
-        const searchBox = new MapboxSearchBox();
-
-        // Set the access token and options for the search box
-        searchBox.accessToken = 'pk.eyJ1IjoiZGVmcmFuazEiLCJhIjoiY2x1bHZ0OWJyMHlhdjJrcDFsZzlwc3ZxMSJ9.XD1OM3LMVn2qoX9QMqR5Vg';
-        searchBox.options = {
-            types: 'address,poi',
-            proximity: [-77.06356, 38.94409]
-        };
-
-        // Enable marker display on the map
-        searchBox.marker = true;
-        searchBox.mapboxgl = mapboxgl;
-
-        // Add the search box to the map as a control
-        map.addControl(searchBox);
-    };
 })
