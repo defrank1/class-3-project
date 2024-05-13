@@ -283,6 +283,7 @@ function setupButtonHoverInteraction(buttonId, layerId, featureId) {
         );
         
     });
+}
 
 // Call setupButtonMapInteraction for each button and corresponding map layer
 setupButtonHoverInteraction('friendship-button', 'friendship-walkshed-layer', 1);
