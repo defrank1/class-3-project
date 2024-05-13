@@ -269,20 +269,22 @@
     /* Reduced button height */
     padding: 6px 6px;
     /* Reduced button padding */
+    font-weight: bold;
+    line-height: 10px;
   }
 
 /*info opanel adjustments*/
   #info-panel-container {
   position: fixed;
-  bottom: 100px;
-  left: 5%;
+  bottom: 4%;
+  left: 4%;
   font-family: sans-serif;
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
-  border-radius: 250px;
-  width: 100px;
-  height: 100px;
+  border-radius: 15px;
+  width: 30%;
+  height: 150px;
   background: #BF0D3E;
 }
 
@@ -298,8 +300,8 @@
 #percent-callout-text {
   text-align: center;
   font-size: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 7px;
+  padding-right: 7px;
   color: #fff;
   font-style: italic;
 }

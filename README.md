@@ -1,6 +1,6 @@
-This is a work in progress project to answer the following question: How much single-family zoning is there within a 15-minute walk of Washington, DC's West of the Park metro stations? 
+This is a class project to answer the following question: How much single-family zoning is there within a 15-minute walk of Washington, DC's West of the Park metro stations? 
 
-West of the Park is one of ten DC Office of Planning neighborhood planning areas. It is the city's wealthiest and whitest, with the highest concentration of exlusionary zoning. 
+West of the Park is one of ten DC Office of Planning neighborhood planning areas. It is the city's wealthiest and whitest, with the highest concentration of exlusionary zoning. DC's Future Land Use Map guides future zoning changes in the city. The Future Land Use Map designates nearly 75% of the residential land use within a 15-minute walk of these stations for low-density. Highlighting that can help build political support for more equitable housing construction in Washington, DC.
 
 The current version of the live site is here, although functionality is very much a work in progress: https://defrank1.github.io/class-3-project/
 
