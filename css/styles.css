@@ -2,13 +2,16 @@
   font-family: sans-serif;
 }
 
-/* style the map container (full screen) */
-#map {
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#map-container {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 99%;
-  height: 100%;
+  width: 100%;
 }
 
 /* styles for search bar*/
@@ -22,8 +25,8 @@
 /* add a floating sidebar in the top left and style each element in it */
 .sidebar {
   position: absolute;
-  width: 300px;
-  height: flex;
+  width: 400px;
+  height: 60%;
   z-index: 10;
   background: #fff;
   padding: 12px;
@@ -144,21 +147,21 @@
 /* add an "info panel" circle in the bottom left and style each element in it */
 #info-panel-container {
   position: fixed;
-  bottom: 150px;
-  left: 50px;
+  bottom: 50px;
+  left: 100px;
   font-family: sans-serif;
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
   border-radius: 250px;
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   background: #BF0D3E;
 }
 
 #percent-callout-number {
-  margin-top: 40px;
-  font-size: 60px;
+  margin-top: 25px;
+  font-size: 40px;
   font-weight: bold;
   color: #fff;
   text-align: center;
@@ -166,7 +169,7 @@
 
 #percent-callout-text {
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
   padding-left: 10px;
   padding-right: 10px;
   color: #fff;

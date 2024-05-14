@@ -11,7 +11,7 @@ const bounds = [ //constraint the map to just Rock Creek West area
 // instantiate the map using a bounding box instead of center point and zoom level
 
 const map = new mapboxgl.Map({
-    container: 'map', // container ID
+    container: 'map-container', // container ID
     // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
     style: 'mapbox://styles/mapbox/standard', // style URL
     center: [-77.06849, 38.94300], // starting position
